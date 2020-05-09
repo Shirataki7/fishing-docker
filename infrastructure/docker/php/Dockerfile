@@ -12,18 +12,14 @@ ENV TZ=Asia/Tokyo \
   # composer environment
   COMPOSER_ALLOW_SUPERUSER=1 \
   COMPOSER_HOME=/composer \
-  # Laravel environment
+
   DB_CONNECTION=mysql \
   DB_HOST=db \
   DB_DATABASE=fishing \
   DB_USERNAME=root \
   DB_PASSWORD=root \
   MAIL_HOST=mail \
-  MAIL_PORT=1025 \
-  REDIS_HOST=redis \
-  CACHE_DRIVER=redis \
-  SESSION_DRIVER=redis \
-  QUEUE_DRIVER=redis
+  MAIL_PORT=1025
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
