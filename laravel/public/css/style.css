@@ -1,0 +1,562 @@
+/* layouts.base */
+
+.wrapper {
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(171, 208, 224, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header_nav {
+    display: flex;
+    margin-top: 0px;
+    height: 40px;
+    justify-content: flex-end;
+    max-width: 1400px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fas {
+    padding-left: 5px;
+}
+
+.links a {
+    color: #636b6f;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.red-badge::after {
+    content: "●";
+    font-family: 'Courier New', Courier, monospace;
+    color: #ff0808;
+    position: relative;
+    top: -10px;
+    right: -0px;
+    font-size: 4px;
+    text-shadow: 0px 0px 2px #008489;
+}
+
+.fa-bell {
+    color: rgb(226, 211, 0);
+    font-size: 18px;
+}
+
+@media(max-width:600px) {
+    .header_nav {
+        justify-content: space-around;
+    }
+}
+
+/* toppage */
+
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.top {
+    background-image: url("/images/sea.jpg");
+    min-height: 50vh;
+    text-align: center;
+    color: #3d4040;
+    font-size: 1.1rem;
+}
+
+.top h1 {
+    padding-top: 15%;
+}
+
+.timeline {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.timeline h3 {
+    color: #636b6f;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    margin: 12px;
+}
+
+.rec_link {
+    text-align: center;
+}
+
+.rec_link a {
+    font-size: 17px;
+    color: rgb(68, 148, 185);
+}
+
+/* user_toppage */
+
+.user_contents {
+    background-image: url("/images/sea.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+}
+
+.user_contents a {
+    border: 2px solid #686d6d;
+    box-shadow: 2px 2px black;
+    color: #3d4040;
+    border-radius: 10px;
+    line-height: 10px;
+    letter-spacing: .1rem;
+    padding: 40px 100px;
+    background-color: #f8fafa;
+    margin-right: 50px;
+}
+
+.user_contents a:hover {
+    box-shadow: none;
+    color: black;
+}
+
+.top_grid, .second_grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rec_top_list {
+    width: 60%;
+    margin: 20px auto;
+}
+
+.rec_top_table {
+    border: 1px solid #c1c4c7;
+    margin: 5px;
+    width: 100%;
+}
+
+@media(max-width:600px) {
+    .top_grid, .second_grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .user_contents a {
+        padding: 20px 60px;
+    }
+    .user_contents {
+        height: auto;
+        padding: 20px 0;
+    }
+    .rec_top_list {
+        width: 100%;
+    }
+}
+
+/* 釣り記録投稿画面 */
+
+.form_wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-image: url("/public/images/sea_shadow.jpg");
+    display: flex;
+    flex-direction: column;
+}
+
+.form_wrapper h3 {
+    text-align: center;
+    padding: 15px;
+}
+
+.form {
+    margin: auto 15px;
+    background-color: rgba(209, 213, 219, 0.301);
+}
+
+.form_image {
+    text-align: center;
+}
+
+.form_image img {
+    width: 400px;
+    margin: 10px;
+}
+
+.col {
+    width: 50%;
+}
+
+.form-control, .col-form-label, .form-control-file, .text-right {
+    margin-top: 10px;
+}
+
+.form-row {
+    width: 60%;
+}
+
+.open_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview {
+    text-align: center;
+    margin: 10px;
+}
+
+@media(max-width:600px) {
+    .form-row {
+        width: 100%;
+        flex-direction: column;
+    }
+    .col {
+        width: 100%;
+    }
+    .form_image img {
+        width: 100%;
+    }
+}
+
+/* user_edit */
+
+.user_edit {
+    background-image: url("/images/sea_shadow.jpg");
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.user_edit_wraper {
+    margin: 10px 20px;
+    background-color: rgba(209, 213, 219, 0.301);
+}
+
+.img_block {
+    margin: 15px;
+}
+
+.img_block img {
+    width: 200px;
+}
+
+.user_edit h3 {
+    margin: 15px;
+}
+
+.user_edit input, label {
+    margin: 20px 0;
+}
+
+/* friends_form */
+
+/* friend_search */
+
+/* friend_profile */
+
+.friend_form {
+    background-image: url("/images/sea_shadow.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.friend_form_box {
+    border: 2px solid #3e3f40;
+    margin: 5% auto;
+    padding: 1.5em;
+    background-color: rgba(209, 213, 219, 0.301);
+}
+
+.friend_profile_box img {
+    margin: 10px;
+    width: 250px;
+}
+
+.friend_form_box img {
+    margin: 10px;
+    width: 100px;
+}
+
+.border_switch {
+    border: 2px solid #f9f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.friend_profile_box {
+    border: 2px solid #3e3f40;
+    margin: 5%;
+    padding: 1.5em;
+    background-color: rgba(209, 213, 219, 0.301);
+}
+
+/* fish_records_list */
+
+/* 検索 */
+
+.rec_search {
+    display: flex;
+    background-image: url("/images/sea.jpg");
+    flex-direction: column;
+    text-align: center;
+}
+
+.rec_search_result h3 {
+    margin-top: 15px;
+}
+
+.rec_search_box {
+    background-color: rgba(209, 213, 219, 0.301);
+    border: 2px solid #3e3f40;
+    margin: 15px auto 30px auto;
+    padding: 1.5rem;
+    box-shadow: 2px 2px black;
+}
+
+/* リスト */
+
+.rec_list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+    flex-wrap: wrap;
+}
+
+.rec_table {
+    border: 1px solid #c1c4c7;
+    margin: 5px;
+    width: 25%;
+}
+
+.rec_head {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 34px;
+}
+
+.head_top {
+    background-color: #eaffea;
+}
+
+.head_second {
+    background-color: #f5faff;
+}
+
+.rec_head_element {
+    display: flex;
+}
+
+.rec_head p {
+    line-height: 34px;
+    margin: 0 5px;
+}
+
+.rec_element {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rec_body {
+    text-align: center;
+}
+
+.rec_inner {
+    background-color: #eceef0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.rec_element p {
+    margin: 5px;
+}
+
+.rec_image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.rec_foot {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5faff;
+}
+
+.rec_edit, .rec_delete {
+    margin: 1.5px 5px;
+}
+
+.rec_btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.detalis {
+    cursor: pointer;
+}
+
+.fa-sun {
+    color: orangered;
+}
+
+.fa-umbrella {
+    color: blue;
+}
+
+.fa-cloud {
+    color: slategray;
+}
+
+@media(max-width:600px) {
+    .rec_list {
+        margin: 0;
+    }
+    .rec_table {
+        width: 100%;
+    }
+    .rec_image img {
+        width: 120px;
+        height: auto;
+        margin-right: 5px;
+        object-fit: contain;
+    }
+}
+
+/* fish_records検索結果 */
+
+.rec_search_result {
+    text-align: center;
+}
+
+.text-center {
+    margin: 15px;
+}
+
+.return {
+    background-color: rgb(192, 223, 236);
+    color: #636b6f;
+    box-shadow: 2px 2px 2px #636b6f;
+}
+
+.return:hover {
+    background-color: rgb(205, 240, 255);
+}
+
+.return:active {
+    box-shadow: none;
+    transform: translateY(2px);
+}
+
+/* fish_records_detalis */
+
+.rec_detalis_image {
+    text-align: center;
+}
+
+.rec_detalis_image img {
+    height: 400px;
+}
+
+.rec_detalis_list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+    flex-direction: column;
+}
+
+.rec_detalis_table {
+    border: 1px solid #c1c4c7;
+    margin: 5px;
+    width: 40%;
+}
+
+/* fish_record comment */
+
+.comment_h {
+    margin-top: 14px;
+    font-size: 18px;
+}
+
+.comment {
+    width: 40%;
+    margin-top: 10px;
+    border-top: 2px solid #dee1e4;
+}
+
+.comment_view {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.comment_show {
+    margin: 10px;
+}
+
+.comment_btn {
+    display: flex;
+    margin: 0 2px;
+    align-items: center;
+}
+
+.comment_form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-top: 2px solid #dee1e4;
+}
+
+.comment_form input[type="text"] {
+    width: 500px;
+}
+
+@media(max-width:600px) {
+    .rec_detalis_list {
+        margin: 0;
+    }
+    .rec_detalis_table {
+        width: 100%;
+    }
+    .rec_detalis_image img {
+        width: 80%;
+        height: auto;
+    }
+    .comment {
+        width: 100%;
+    }
+    .comment_form input[type="text"] {
+        width: auto;
+    }
+}
+
+/* 通知ページ */
+
+.notice_form {
+    background-color: snow;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
