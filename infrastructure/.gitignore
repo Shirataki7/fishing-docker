@@ -2,3 +2,4 @@
 /docker/logs
 /docker/php/bash
 .env
+.DS_Store
