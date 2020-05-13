@@ -1,0 +1,15 @@
+version: "3.0"
+service:
+  app:
+  build: .
+  image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/practice-repo:latest
+  container_name: practice
+  environment:
+    PRODUCTION: true
+  logging:
+    driver: awslogs
+    options:
+      awslogs-group: /ecs/practice-task
+      awslogs-region: ap-northeast-1
+      awslogs-stream-prefix: ecs
+
