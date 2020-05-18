@@ -1,6 +1,6 @@
 version: "3.0"
 task_definition:
-  ecs_network_mode: awsvpc
+  ecs_network_mode: bridge
   task_execution_role: ecsTaskExecutionRole
   task_size:
     cpu_limit: 256
@@ -12,7 +12,7 @@ task_definition:
 run_params:
   network_configuration:
     awsvpc_configuration:
-      subnets:
+      subnets: 
        - subnet-059caa4e3fcb5985e
       security_groups:
        - sg-09dfacbda5b0949d6

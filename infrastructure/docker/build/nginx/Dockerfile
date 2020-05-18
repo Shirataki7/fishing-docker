@@ -9,11 +9,10 @@ RUN apk update && \
 
 COPY --from=node /usr/local/bin /usr/local/bin
 COPY --from=node /opt /opt
-COPY ./infrastructure/docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./infrastructure/docker/build/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 COPY ./laravel /work/laravel
 
-COPY ./laravel/php-fpm /var/run/php-fpm
 COPY ./laravel/php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 
 WORKDIR /work/laravel
