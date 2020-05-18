@@ -4,8 +4,9 @@ services:
     image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
     container_name: nginx-container
     ports:
-      - target: "80"
-        published: "8080"
+      - "0:80"
+    networks:
+      - bridge
     logging:
       driver: awslogs
       options:
