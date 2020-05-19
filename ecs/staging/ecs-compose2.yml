@@ -7,7 +7,7 @@ services:
       - "0:80"
     networks:
       ecs-network:
-        ipv4_addredd: 10.0.0.1
+        ipv4_address: 10.0.0.1
   server:
     build: ./laravel
     container_name: laravel
@@ -16,7 +16,7 @@ services:
      - "0:80"
     networks:
       ecs-network:
-        ipv4_addredd: 10.0.0.0
+        ipv4_address: 10.0.0.0
   
     networks:
     ecs-network:
