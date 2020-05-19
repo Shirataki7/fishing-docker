@@ -23,9 +23,6 @@ services:
       driver: bridge
       ipam:
         driver: default
-              awslogs-group: /ecs/nginx-task
-        awslogs-region: ap-northeast-1
-        awslogs-stream-prefix: ecs
     logging:
       driver: awslogs
       options:
