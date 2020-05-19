@@ -8,16 +8,7 @@ services:
     networks:
       ecs-network:
         ipv4_address: 10.0.0.1
-  server:
-    build: ./laravel
-    container_name: laravel
-    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
-    ports:
-     - "0:80"
-    networks:
-      ecs-network:
-        ipv4_address: 10.0.0.0
-  
+        
     networks:
     ecs-network:
       driver: bridge
