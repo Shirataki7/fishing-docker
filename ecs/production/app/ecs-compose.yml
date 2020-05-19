@@ -7,16 +7,18 @@ services:
       - "0:80"
     networks:
       ecs-network:
-        ipv4_address: 10.0.0.0
-
-    networks:
-    ecs-network:
-      driver: bridge
-      ipam:
-        driver: default
+        ipv4_address: 172.17.0.3/16
     logging:
       driver: awslogs
       options:
         awslogs-group: /ecs/fishing-task
         awslogs-region: ap-northeast-1
         awslogs-stream-prefix: ecs
+
+networks:
+  ecs-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: subnet-059caa4e3fcb5985e
