@@ -2,6 +2,8 @@ version: "3.0"
 services:
   nginx:
     image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
     container_name: nginx
     ports:
       - "0:80"

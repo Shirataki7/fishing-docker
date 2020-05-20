@@ -2,6 +2,8 @@ version: "3.0"
 services:
   app:
     image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
     container_name: laravel
     ports:
       - "0:80"
