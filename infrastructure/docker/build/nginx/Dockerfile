@@ -13,6 +13,5 @@ COPY ./infrastructure/docker/build/nginx/default.conf /etc/nginx/conf.d/default.
 
 COPY ./laravel /work/laravel
 
-COPY ./laravel/php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 
 WORKDIR /work/laravel

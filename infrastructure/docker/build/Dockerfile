@@ -23,6 +23,7 @@ ENV TZ=Asia/Tokyo \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+WORKDIR /work/laravel
 COPY ./laravel $WORKDIR
 
 
@@ -41,4 +42,3 @@ RUN apt-get update && \
 COPY ./infrastructure/docker/php/php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 COPY ./infrastructure/docker/php/php.ini /usr/local/etc/php/php.ini
 
-WORKDIR /work/laravel
