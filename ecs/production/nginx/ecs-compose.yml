@@ -1,0 +1,28 @@
+version: "3.0"
+volumes:
+  php-fpm-socket:
+services:
+  nginx:
+    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+    container_name: nginx
+    ports:
+      - "0:80"
+    networks:
+      ecs-network:
+        ipv4_address: 172.17.0.2/16
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/nginx-task
+        awslogs-region: ap-northeast-1
+        awslogs-stream-prefix: ecs
+
+networks:
+  ecs-network:
+    driver: bridge
+    ipam:
+      driver: default
+
+
