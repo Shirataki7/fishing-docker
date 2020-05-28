@@ -4,14 +4,11 @@ volumes:
 services:
   app:
     image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
+    env_file:
+      - ./.db.env
     volumes:
       - php-fpm-socket:/var/run/php-fpm
     container_name: laravel
-    ports:
-      - "0:80"
-    networks:
-      ecs-network:
-        ipv4_address: 172.17.0.3/16
     logging:
       driver: awslogs
       options:
@@ -25,10 +22,7 @@ services:
       - php-fpm-socket:/var/run/php-fpm
     container_name: nginx
     ports:
-      - "0:80"
-    networks:
-      ecs-network:
-        ipv4_address: 172.17.0.2/16
+      - "80:80"
     logging:
       driver: awslogs
       options:

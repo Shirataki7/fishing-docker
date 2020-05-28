@@ -11,15 +11,7 @@ ENV TZ=Asia/Tokyo \
   LC_ALL=ja_JP.UTF-8 \
   # composer environment
   COMPOSER_ALLOW_SUPERUSER=1 \
-  COMPOSER_HOME=/composer \
-
-  DB_CONNECTION=mysql \
-  DB_HOST=db \
-  DB_DATABASE=fishing \
-  DB_USERNAME=root \
-  DB_PASSWORD=root \
-  MAIL_HOST=mail \
-  MAIL_PORT=1025
+  COMPOSER_HOME=/composer 
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

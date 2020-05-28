@@ -13,5 +13,4 @@ COPY ./infrastructure/docker/build/nginx/default.conf /etc/nginx/conf.d/default.
 
 COPY ./laravel /work/laravel
 
-
 WORKDIR /work/laravel

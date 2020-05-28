@@ -8,6 +8,13 @@ task_definition:
   services:
     app:
       essential: true
+      secrets:
+       - value_from: fishing-db-host
+         name: DB_HOST
+       - value_from: fishing-db-username
+         name: DB_USERNAME
+       - value_from: fishing-db-password
+         name: DB_PASSWORD
 
 run_params:
   network_configuration:
