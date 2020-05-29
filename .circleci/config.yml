@@ -1,0 +1,43 @@
+version: 2 
+
+jobs: 
+  build: 
+    docker: 
+      - image: circleci/php:7.3-node-browsers
+      - image: circleci/mysql:5.7
+
+    environment:
+     - MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+    working_directory: ~/laravel 
+
+    steps: 
+      - checkout 
+      - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
+      - run: sudo apt-get install default-mysql-client
+      - run: sudo docker-php-ext-install zip
+      - run: sudo composer self-update
+      - restore_cache: 
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
+            - composer-v1-
+      - run: composer install -n --prefer-dist
+      - save_cache: 
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package-lock.json" }}
+            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
+            - node-v1-
+      - run: yarn install
+      - save_cache: 
+          key: node-v1-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run: php artisan migrate --seed
+      - run: php ./vendor/bin/phpunit
+      - run: ./vendor/bin/codecept build
+      - run: ./vendor/bin/codecept run
