@@ -9,7 +9,7 @@ jobs:
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-   # working_directory: ~/fishing-docker
+    working_directory: ~/fishing-docker
 
     steps: 
       - checkout 
@@ -42,9 +42,13 @@ jobs:
             - ./laravel
       - run: pwd
       - run: 
+          name: config:clear
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan config:refresh
+      - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
-          command: php artisan migrate --seed 
+          command: php artisan migrate --seed --database=mysql_testing
       # - run: php ./vendor/bin/phpunit
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
