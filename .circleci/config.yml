@@ -54,9 +54,9 @@ jobs:
           name: seed data
           working_directory: ~/fishing-docker/laravel
           command: php artisan migrate --seed --env=testing
-      # - run: 
-      #     name: test
-      #     working_directory: ~/fishing-docker/laravel
-      #     command: ./laravel/vendor/bin/phpunit ./tests/Feature/TopControllerTest.php
+      - run: 
+          name: test
+          working_directory: ~/fishing-docker/laravel
+          command: ./vendor/bin/phpunit
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
