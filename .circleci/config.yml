@@ -49,9 +49,6 @@ jobs:
           name: seed data
           working_directory: ~/fishing-docker/laravel
           command: php artisan migrate:refresh --seed --database=mysql_testing
-      - run: 
-          name: test
-          working_directory: ~/fishing-docker/laravel
-          command: php artisan test
+      - run: ./vendor/bin/phpunit tests/Feature
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
