@@ -22,6 +22,8 @@ jobs:
             - composer-v1-{{ checksum "composer.lock" }}
             # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - composer-v1-
+          paths:
+           - ../laravel
       - run: composer install -n --prefer-dist
       - save_cache: 
           key: composer-v1-{{ checksum "composer.lock" }}
