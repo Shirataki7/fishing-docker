@@ -20,7 +20,7 @@ jobs:
       - run: ls
       - restore_cache: 
           keys:
-            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-{{ checksum "./laravel/composer.lock" }}
             # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - composer-v1-
           paths: 
