@@ -48,7 +48,7 @@ jobs:
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
-          command: php artisan migrate:refresh
+          command: php artisan migrate --seed --env=testing
       # - run: 
       #     name: test
       #     working_directory: ~/fishing-docker/laravel
