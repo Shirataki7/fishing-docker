@@ -55,6 +55,10 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: php artisan migrate --seed --env=testing
       - run: 
+          name: app_key
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan key:generate
+      - run: 
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
