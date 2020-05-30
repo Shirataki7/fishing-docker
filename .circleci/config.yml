@@ -8,6 +8,7 @@ jobs:
 
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+     - MYSQL_DATABASE: fishing_testing
 
     working_directory: ~/fishing-docker
 
