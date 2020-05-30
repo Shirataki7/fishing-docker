@@ -47,13 +47,13 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: mysql --version
       - run: 
-          name: seed data
-          working_directory: ~/fishing-docker/laravel
-          command: php artisan migrate --seed --env=testing
-      - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
-          command: cp .env.example .env
+          command: cp .env.example .env          
+      - run: 
+          name: seed data
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan migrate --seed
       - run: 
           name: app_key
           working_directory: ~/fishing-docker/laravel
