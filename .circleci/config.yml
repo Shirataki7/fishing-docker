@@ -17,6 +17,7 @@ jobs:
       - run: sudo apt-get install default-mysql-client
       - run: sudo docker-php-ext-install zip
       - run: sudo composer self-update
+      - run: ls
       - restore_cache: 
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
