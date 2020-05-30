@@ -38,7 +38,8 @@ jobs:
       - run: yarn install
       - save_cache: 
           key: node-v1-{{ checksum "./laravel/package-lock.json" }}
-
+          paths:
+            - ./laravel
       # - run: php artisan migrate --seed
       # - run: php ./vendor/bin/phpunit
       # - run: ./vendor/bin/codecept build
