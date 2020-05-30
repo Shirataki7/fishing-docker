@@ -44,7 +44,7 @@ jobs:
       - run: 
           name: config:clear
           working_directory: ~/fishing-docker/laravel
-          command: php artisan config:refresh
+          command: php artisan config:clear
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
