@@ -8,7 +8,6 @@ jobs:
 
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
-     - MYSQL_DATABASE: fishing_testing
 
     working_directory: ~/fishing-docker
 
@@ -37,7 +36,7 @@ jobs:
             - node-v1-
           paths: 
             - ./laravel
-      - run: yarn install --working-dir=./laravel
+      - run: yarn install 
       - save_cache: 
           key: node-v1-{{ checksum "./laravel/package-lock.json" }}
           paths:
