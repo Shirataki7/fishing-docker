@@ -42,6 +42,10 @@ jobs:
             - ./laravel
       - run: pwd
       - run: 
+          name: mysql
+          working_directory: ~/fishing-docker/laravel
+          command: mysql --version
+      - run: 
           name: config:clear
           working_directory: ~/fishing-docker/laravel
           command: php artisan config:clear
