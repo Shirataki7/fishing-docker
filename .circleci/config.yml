@@ -25,7 +25,7 @@ jobs:
             - composer-v1-
           paths: 
             - ./laravel
-      - run: composer install -n --prefer-dist
+      - run: composer install -n --prefer-dist --working-dir=./laravel
       - save_cache: 
           key: composer-v1-{{ checksum "./laravel/composer.lock" }}
           paths:
