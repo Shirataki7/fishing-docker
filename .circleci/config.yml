@@ -63,6 +63,10 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: php artisan config:clear
       - run: 
+          name: config:clear
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan config:cache
+      - run: 
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
