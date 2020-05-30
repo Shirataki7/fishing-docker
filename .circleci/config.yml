@@ -34,7 +34,8 @@ jobs:
              - node-v1-{{ checksum "package-lock.json" }}
              # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
              - node-v1-
-            paths: ./laravel
+            paths: 
+             - ./laravel
        - run: yarn install
        - save_cache: 
            key: node-v1-{{ checksum "package-lock.json" }}
