@@ -16,7 +16,7 @@ jobs:
       - checkout 
       - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
       - run: sudo apt-get install default-mysql-client
-      - run: sudo docker-php-ext-install zip
+      - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update
       - restore_cache: 
           keys:
