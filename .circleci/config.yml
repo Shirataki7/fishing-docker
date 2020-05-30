@@ -9,7 +9,7 @@ jobs:
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-    working_directory: ~/fishing-docker/laravel
+    working_directory: ~/laravel
 
     steps: 
       - checkout 
