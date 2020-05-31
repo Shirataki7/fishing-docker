@@ -61,8 +61,11 @@ jobs:
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
-jobs:
+          
   test:
+    working_directory: ~/fishing-docker
+
+    steps:
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
