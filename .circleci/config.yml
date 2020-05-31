@@ -42,10 +42,6 @@ jobs:
           paths:
             - ./laravel
       - run: 
-          name: mysql
-          working_directory: ~/fishing-docker/laravel
-          command: mysql --version
-      - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
           command: cp .env.example .env          
@@ -57,10 +53,6 @@ jobs:
           name: app_key
           working_directory: ~/fishing-docker/laravel
           command: php artisan key:generate
-      - run: 
-          name: config:clear
-          working_directory: ~/fishing-docker/laravel
-          command: php artisan config:clear
       - run: 
           name: config:clear
           working_directory: ~/fishing-docker/laravel
