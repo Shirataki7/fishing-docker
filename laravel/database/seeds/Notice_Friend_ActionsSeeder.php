@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class NoticeTableSeeder extends Seeder
+class Notice_Friend_ActionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

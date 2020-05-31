@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Fish_recordsTableSeeder::class
         ]);
+        $this->call([
+            Notice_Friend_ActionsSeeder::class
+        ]);
+        $this->call([
+            Notice_Post_ActionsTableSeeder::class
+        ]);
     }
 }
