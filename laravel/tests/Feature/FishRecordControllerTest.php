@@ -74,7 +74,7 @@ class FishRecordControllerTest extends TestCase
     public function test_comment_edit()
     {
         $response = $this->actingAs(User::find(3))
-            ->post('fish_records/comments/4/edit');
+            ->post('fish_records/comments/1/edit');
 
         $response->assertStatus(200)
             ->assertViewIs('comment_edit')
@@ -83,14 +83,14 @@ class FishRecordControllerTest extends TestCase
     public function test_comment_update()
     {
         $response = $this->actingAs(User::find(3))
-            ->post('fish_records/comments/4/update', ['comment' => '修正テスト']);
+            ->post('fish_records/comments/1/update', ['comment' => '修正テスト']);
 
         $response->assertRedirect('fish_records/5');
     }
 
     public function test_comment_delete()
     {
-        $response = $this->actingAs(User::find(3))->delete('fish_records/comments/4/delete');
+        $response = $this->actingAs(User::find(3))->delete('fish_records/comments/1/delete');
 
         $response->assertStatus(302);
     }
