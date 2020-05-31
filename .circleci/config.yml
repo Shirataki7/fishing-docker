@@ -61,3 +61,16 @@ jobs:
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
+
+workflows:
+  test:
+    jobs:
+      - run:
+          name: sh
+          working_directory: ~/fishing-docker/laravel
+          command: sh test.sh
+        filters:
+          branches:
+            only:
+              - test
+        
