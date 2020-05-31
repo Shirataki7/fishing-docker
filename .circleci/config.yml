@@ -69,5 +69,3 @@ jobs:
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
-      - run: ./laravel/vendor/bin/codecept build
-      - run: ./laravel/vendor/bin/codecept run
