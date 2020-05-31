@@ -72,7 +72,7 @@ jobs:
       - run: unzip awscliv2.zip
       - run: sudo ./aws/install
       - run: aws configure set region ap-northeast-1 --profile user1
-      - run: echo [user1] >> ~/.aws/configure
+      - run: echo [user1] >> ~/.aws/credentials
       - run: echo ${aws_access_key_id} >> ~/.aws/credentials
       - run: echo ${aws_secret_access_key} >> ~/.aws/credentials
       - run:
