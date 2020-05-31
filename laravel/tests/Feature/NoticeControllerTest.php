@@ -27,7 +27,7 @@ class NoticeControllerTest extends TestCase
     {
         $response = $this->actingAs(User::find(3))->get('notices/1/comment');
 
-        $response->assertRedirect(route('detalis', ['id'=>13]));
+        $response->assertRedirect(route('detalis', ['id'=>4]));
     }
 
     public function test_friend_notice_read()
