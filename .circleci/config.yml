@@ -71,7 +71,9 @@ jobs:
       - run: curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       - run: unzip awscliv2.zip
       - run: sudo ./aws/install
-      - run: aws configure --profile user1 | ${aws_access_key_id} | ${aws_secret_access_key} | ap-northeast-1
+      - run: aws configure set region ap-northeast-1 --profile user1
+      - run: aws_access_key_id=${aws_access_key_id} >> ~/.aws/configure
+      - run: ${aws_secret_access_key} >> ~/.aws/configure
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
