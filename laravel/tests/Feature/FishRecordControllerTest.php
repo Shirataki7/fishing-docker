@@ -63,13 +63,6 @@ class FishRecordControllerTest extends TestCase
             ->assertSee('修正');
     }
 
-    public function test_delete()
-    {
-        $response = $this->actingAs(User::find(3))->delete('fish_records/delete/5');
-
-        $response->assertRedirect('fish_records');
-    }
-
     public function test_comment()
     {
         $response = $this->actingAs(User::find(3))
@@ -101,4 +94,12 @@ class FishRecordControllerTest extends TestCase
 
         $response->assertStatus(302);
     }
+
+    public function test_delete()
+    {
+        $response = $this->actingAs(User::find(3))->delete('fish_records/delete/5');
+
+        $response->assertRedirect('fish_records');
+    }
+
 }
