@@ -1,0 +1,63 @@
+version: 2 
+
+jobs: 
+  build: 
+    docker: 
+      - image: circleci/php:7.3-node-browsers
+      - image: circleci/mysql:5.7
+
+    environment:
+     - MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+    working_directory: ~/fishing-docker
+
+    steps: 
+      - checkout 
+      - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
+      - run: sudo apt-get install default-mysql-server
+      - run: sudo docker-php-ext-install zip pdo_mysql
+      - run: sudo composer self-update
+      - restore_cache: 
+          keys:
+            - composer-v1-{{ checksum "./laravel/composer.lock" }}
+            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
+            - composer-v1-
+          paths: 
+            - ./laravel
+      - run: composer install -n --prefer-dist --working-dir=./laravel
+      - save_cache: 
+          key: composer-v1-{{ checksum "./laravel/composer.lock" }}
+          paths:
+            - ./laravel
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "./laravel/package-lock.json" }}
+            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
+            - node-v1-
+          paths: 
+            - ./laravel
+      - run: yarn install 
+      - save_cache: 
+          key: node-v1-{{ checksum "./laravel/package-lock.json" }}
+          paths:
+            - ./laravel
+      - run: 
+          name: .env
+          working_directory: ~/fishing-docker/laravel
+          command: cp .env.example .env          
+      - run: 
+          name: seed data
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan migrate --seed
+      - run: 
+          name: app_key
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan key:generate
+      - run: 
+          name: config:clear
+          working_directory: ~/fishing-docker/laravel
+          command: php artisan config:cache
+      - run: 
+          name: test
+          working_directory: ~/fishing-docker/laravel
+          command: ./vendor/bin/phpunit
