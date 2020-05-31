@@ -69,6 +69,6 @@ jobs:
       - run: 
           name: test
           working_directory: ~/fishing-docker/laravel
-          command: ./vendor/bin/phpunit　./laravel/tests/Feature/TopControllerTest.php
+          command: ./vendor/bin/phpunit　TopControllerTest.php
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
