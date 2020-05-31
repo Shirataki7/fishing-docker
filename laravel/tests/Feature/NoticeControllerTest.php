@@ -27,12 +27,12 @@ class NoticeControllerTest extends TestCase
     {
         $response = $this->actingAs(User::find(3))->get('notices/1/comment');
 
-        $response->assertRedirect(route('detalis', ['id'=>4]));
+        $response->assertRedirect(route('detalis', ['id'=>13]));
     }
 
     public function test_friend_notice_read()
     {
-        $response = $this->actingAs(User::find(3))->get('notices/1/friend');
+        $response = $this->actingAs(User::find(3))->get('notices/3/friend');
 
         $response->assertRedirect(route('friend_profile', ['id'=>1]));
     }
