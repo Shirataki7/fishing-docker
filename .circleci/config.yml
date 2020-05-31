@@ -73,8 +73,8 @@ workflows:
     jobs:
       - build
       - test
-        filters:
-          branches:
-            only:
-              - test
+          filters:
+            branches:
+              only:
+                - test
         
