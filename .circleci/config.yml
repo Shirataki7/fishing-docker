@@ -63,8 +63,9 @@ jobs:
           command: ./vendor/bin/phpunit
 
   test:
+    docker:
+      - image: circleci/php:7.3-node-browsers
     working_directory: ~/fishing-docker
-
     steps:
       - run:
           name: sh
