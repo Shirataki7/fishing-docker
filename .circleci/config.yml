@@ -67,6 +67,7 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     working_directory: ~/fishing-docker
     steps:
+      - checkout
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
