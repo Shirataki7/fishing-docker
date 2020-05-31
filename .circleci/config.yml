@@ -42,10 +42,6 @@ jobs:
           paths:
             - ./laravel
       - run: 
-          name: dump
-          working_directory: ~/fishing-docker/laravel
-          command: composer dump-autoload
-      - run: 
           name: mysql
           working_directory: ~/fishing-docker/laravel
           command: mysql --version
@@ -72,6 +68,6 @@ jobs:
       - run: 
           name: test
           working_directory: ~/fishing-docker/laravel
-          command: ./vendor/bin/phpunit ./tests/Feature/NoticeControllerTest.php 
+          command: ./vendor/bin/phpunit
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
