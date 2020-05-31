@@ -62,7 +62,7 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
 
-  test:
+  deploy:
     docker:
       - image: circleci/php:7.3-node-browsers
     working_directory: ~/fishing-docker
@@ -71,17 +71,17 @@ jobs:
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
-          command: sh test.sh
+          command: sh aws.sh
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test:
+      - deploy:
           requires:
             - build
           filters:
             branches:
-              only: feature/test
+              only: feature/deploy
         
