@@ -15,8 +15,8 @@ class Notice_Friend_ActionsSeeder extends Seeder
 
             [
                 'id'=>1,
-                'user_id'=>1,
-                'added_friend_id'=>3,
+                'user_id'=>3,
+                'added_friend_id'=>1,
                 'state'=>1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
