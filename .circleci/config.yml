@@ -68,6 +68,10 @@ jobs:
     working_directory: ~/fishing-docker
     steps:
       - checkout
+      - run: curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - run: unzip awscliv2.zip
+      - run: sudo ./aws/install
+      - run: aws --version
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
