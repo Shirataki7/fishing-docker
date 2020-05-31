@@ -41,7 +41,10 @@ jobs:
           key: node-v1-{{ checksum "./laravel/package-lock.json" }}
           paths:
             - ./laravel
-      - run: pwd
+      - run: 
+          name: dump
+          working_directory: ~/fishing-docker/laravel
+          command: composer dump-autoload
       - run: 
           name: mysql
           working_directory: ~/fishing-docker/laravel
