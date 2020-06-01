@@ -4,6 +4,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@0.0.10
 
 jobs: 
+executors:
   build: 
     docker: 
       - image: circleci/php:7.3-node-browsers
@@ -67,17 +68,11 @@ jobs:
           command: ./vendor/bin/phpunit
 
   deploy:
-    docker:
-      - image: circleci/python:3.7.1
-
-    working_directory: ~/fishing-docker
-
+    exector:
+      name: build
     steps:
       - run: pwd
       - run: cd ./laravel && ls -la
-      - run: sudo apt-get update
-
-      - run: sudo composer self-update
 
       - aws-cli/install
       - setup_remote_docker
