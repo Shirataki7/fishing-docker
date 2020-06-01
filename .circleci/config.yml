@@ -119,7 +119,6 @@ jobs:
           name: permission change
           working_directory: ~/fishing-docker/laravel
           command: sudo chmod -R 777 ./storage
-      - run: cd ./laravel && cat .env
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
