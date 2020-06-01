@@ -69,11 +69,13 @@ jobs:
     docker:
       - image: circleci/python:3.7.1
       - image: circleci/php:7.3-node-browsers
+
     working_directory: ~/fishing-docker
+
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo docker-php-ext-install intl pdo_mysql mbstring zip
+
       - run: sudo composer self-update
       - restore_cache: 
           keys:
