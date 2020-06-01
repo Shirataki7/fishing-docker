@@ -16,7 +16,7 @@ executors:
 
 commands:
   setup:
-  description: "composer,yarnのインストールなど"
+    description: "composer,yarnのインストールなど"
     steps: 
       - checkout 
       - run: pwd
