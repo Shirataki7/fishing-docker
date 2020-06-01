@@ -2,7 +2,7 @@
 
 AWSID=$(aws sts get-caller-identity | jq -r  .Account)
 
-aws ecr get-login-password --region ap-northeast-1  | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/practice-repo
+aws ecr get-login-password --region ap-northeast-1 --profile default | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/practice-repo
 
 #build、タグ付け、push
 cd ../
