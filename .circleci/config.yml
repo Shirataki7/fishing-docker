@@ -50,10 +50,6 @@ jobs:
           name: .env
           working_directory: ~/fishing-docker/laravel
           command: cp .env.example .env 
-      - run:
-          name: permission change
-          working_directory: ~/fishing-docker/laravel
-          command: sudo chmod -R 777 ./storage
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
@@ -124,6 +120,10 @@ jobs:
           name: setup .env
           working_directory: ~/fishing-docker/laravel
           command: echo ${env_file} | base64 --decode > .env
+      - run:
+          name: permission change
+          working_directory: ~/fishing-docker/laravel
+          command: sudo chmod -R 777 ./storage
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
