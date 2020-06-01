@@ -5,15 +5,15 @@ orbs:
 
 executors:
   laravel-images: 
+    working_directory: ~/fishing-docker
     docker: 
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
 
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
-
-    working_directory: ~/fishing-docker
-    
+     
+jobs:
   build:
     executor: laravel-images
     steps: 
