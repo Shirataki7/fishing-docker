@@ -4,7 +4,7 @@ orbs:
 
 
 executors:
-  build: 
+  laravel-images: 
     docker: 
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
@@ -13,10 +13,9 @@ executors:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
     working_directory: ~/fishing-docker
-
-commands:
-  setup:
-    description: "composer,yarnのインストールなど"
+    
+  build:
+    executor: laravel-images
     steps: 
       - checkout 
       - run: pwd
@@ -70,9 +69,12 @@ commands:
           command: ./vendor/bin/phpunit
 
   deploy:
-    executor: build
+    executor:
+      name: build
     steps:
-      - setup
+      - run: pwd
+      - run: cd ./laravel && ls -la
+
       - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
