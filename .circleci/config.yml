@@ -5,15 +5,14 @@ orbs:
 
 executors:
   build: 
+    working_directory: ~/fishing-docker
     docker: 
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
-
-    environment:
-     - MYSQL_ALLOW_EMPTY_PASSWORD: true
-
-    working_directory: ~/fishing-docker
-
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true  
+           
+commands:
     steps: 
       - checkout 
       - run: pwd
