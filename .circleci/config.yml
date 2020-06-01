@@ -53,7 +53,7 @@ jobs:
       - run:
           name: permission change
           working_directory: ~/fishing-docker/laravel
-          command: chmod -R 777 ./storage
+          command: sudo chmod -R 777 ./storage
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
