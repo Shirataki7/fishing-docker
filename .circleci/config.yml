@@ -68,7 +68,7 @@ executors:
           command: ./vendor/bin/phpunit
 
   deploy:
-    exector:
+    executor:
       name: build
     steps:
       - run: pwd
