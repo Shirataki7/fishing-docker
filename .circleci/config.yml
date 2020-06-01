@@ -2,7 +2,6 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@0.1.4
 
-
 executors:
   laravel-images: 
     working_directory: ~/fishing-docker
@@ -25,7 +24,6 @@ jobs:
       - restore_cache: 
           keys:
             - composer-v1-{{ checksum "./laravel/composer.lock" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - composer-v1-
           paths: 
             - ./laravel
@@ -37,7 +35,6 @@ jobs:
       - restore_cache:
           keys:
             - node-v1-{{ checksum "./laravel/package-lock.json" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - node-v1-
           paths: 
             - ./laravel
@@ -76,7 +73,6 @@ jobs:
       - restore_cache: 
           keys:
             - composer-v1-{{ checksum "./laravel/composer.lock" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - composer-v1-
           paths: 
             - ./laravel
@@ -88,7 +84,6 @@ jobs:
       - restore_cache:
           keys:
             - node-v1-{{ checksum "./laravel/package-lock.json" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - node-v1-
           paths: 
             - ./laravel
@@ -124,6 +119,7 @@ jobs:
           name: permission change
           working_directory: ~/fishing-docker/laravel
           command: sudo chmod -R 777 ./storage
+      - run: cd ./laravel && cat .env
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
