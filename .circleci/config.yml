@@ -69,8 +69,7 @@ jobs:
           command: ./vendor/bin/phpunit
 
   deploy:
-    executor:
-      name: build
+    executor: laravel-images
     steps:
       - checkout
       - run: pwd
