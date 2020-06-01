@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  aws-cli: circleci/aws-cli@1.0.0
+  aws-cli: circleci/aws-cli@0.1.4
 
 executors:
   laravel-images: 
@@ -120,7 +120,6 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: sudo chmod -R 777 ./storage
       - run: cd ./laravel && cat .env
-      - run: aws --version
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
