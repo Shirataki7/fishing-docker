@@ -16,6 +16,7 @@ jobs:
 
     steps: 
       - checkout 
+      - run: pwd
       - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
       - run: sudo apt-get install default-mysql-server
       - run: sudo docker-php-ext-install zip pdo_mysql
@@ -68,12 +69,12 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:3.7.1
-      - image: circleci/php:7.3-node-browsers
 
     working_directory: ~/fishing-docker
 
     steps:
       - checkout
+      - run: pwd
       - run: sudo apt-get update
 
       - run: sudo composer self-update
