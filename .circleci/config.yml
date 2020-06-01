@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  aws-cli: circleci/aws-cli
+  aws-cli: amazon/aws-cli
 
 executors:
   laravel-images: 
