@@ -72,11 +72,11 @@ jobs:
     steps:
       - checkout
       - aws-cli/install
+      - setup_remote_docker
       - aws-cli/configure:
           aws-access-key-id: ${aws_access_key_id}
           aws-secret-access-key: ${aws_secret_access_key}
           aws-region: ap-northeast-1
-      - run: aws --version
       - run:
           name: sh
           working_directory: ~/fishing-docker/laravel
