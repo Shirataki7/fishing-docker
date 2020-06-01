@@ -18,7 +18,6 @@ jobs:
     executor: laravel-images
     steps: 
       - checkout 
-      - run: pwd
       - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
       - run: sudo apt-get install default-mysql-server
       - run: sudo docker-php-ext-install zip pdo_mysql
@@ -50,7 +49,11 @@ jobs:
       - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
-          command: cp .env.example .env          
+          command: cp .env.example .env 
+      - run:
+          name: permission change
+          working_directory: ~/fishing-docker/laravel
+          command: chmod -R 777 ./storage
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
@@ -72,8 +75,6 @@ jobs:
     executor: laravel-images
     steps:
       - checkout
-      - run: pwd
-      - run: cd ./laravel && ls -la
       - run: sudo apt-get update
       - run: sudo composer self-update
       - restore_cache: 
