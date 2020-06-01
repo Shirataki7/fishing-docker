@@ -74,7 +74,7 @@ jobs:
 
     steps:
       - run: pwd
-      - run: cd ./laravel ls -la
+      - run: cd ./laravel && ls -la
       - run: sudo apt-get update
 
       - run: sudo composer self-update
