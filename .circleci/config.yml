@@ -1,7 +1,10 @@
-version: 2 
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.4
 
-jobs: 
-  build: 
+executors:
+  laravel-images: 
+    working_directory: ~/fishing-docker
     docker: 
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
@@ -9,8 +12,9 @@ jobs:
     environment:
      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-    working_directory: ~/fishing-docker
-
+jobs:
+  build:
+    executor: laravel-images
     steps: 
       - checkout 
       - run: sudo apt install -y git libicu-dev libonig-dev libzip-dev unzip locales
@@ -20,7 +24,6 @@ jobs:
       - restore_cache: 
           keys:
             - composer-v1-{{ checksum "./laravel/composer.lock" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - composer-v1-
           paths: 
             - ./laravel
@@ -32,7 +35,6 @@ jobs:
       - restore_cache:
           keys:
             - node-v1-{{ checksum "./laravel/package-lock.json" }}
-            # 正確な一致が見つからない場合は、最新のキャッシュの使用にフォールバックします (https://circleci.com/docs/ja/2.0/caching/ を参照)
             - node-v1-
           paths: 
             - ./laravel
@@ -44,7 +46,7 @@ jobs:
       - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
-          command: cp .env.example .env          
+          command: cp .env.example .env 
       - run: 
           name: seed data
           working_directory: ~/fishing-docker/laravel
@@ -61,3 +63,76 @@ jobs:
           name: test
           working_directory: ~/fishing-docker/laravel
           command: ./vendor/bin/phpunit
+
+  deploy:
+    executor: laravel-images
+    steps:
+      - checkout
+      - run: sudo apt-get update
+      - run: sudo composer self-update
+      - restore_cache: 
+          keys:
+            - composer-v1-{{ checksum "./laravel/composer.lock" }}
+            - composer-v1-
+          paths: 
+            - ./laravel
+      - run: composer install -n --prefer-dist --working-dir=./laravel
+      - save_cache: 
+          key: composer-v1-{{ checksum "./laravel/composer.lock" }}
+          paths:
+            - ./laravel
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "./laravel/package-lock.json" }}
+            - node-v1-
+          paths: 
+            - ./laravel
+      - run: yarn install 
+      - save_cache: 
+          key: node-v1-{{ checksum "./laravel/package-lock.json" }}
+          paths:
+            - ./laravel
+      - aws-cli/install
+      - setup_remote_docker
+      - aws-cli/configure:
+          aws-access-key-id: ${aws_access_key_id}
+          aws-secret-access-key: ${aws_secret_access_key}
+          aws-region: ap-northeast-1          
+      - run: aws sts get-caller-identity
+      - run:
+          name: setup ecs-cli
+          command: |
+            sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest
+            sudo chmod +x /usr/local/bin/ecs-cli
+            ecs-cli --version
+            ecs-cli configure profile --profile-name ecs-cli --access-key ${aws_access_key_id} --secret-key ${aws_secret_access_key}
+            ecs-cli configure --cluster fishing-cluster --default-launch-type EC2 --region ap-northeast-1
+      - run:
+          name: cp .env
+          working_directory: ~/fishing-docker/laravel
+          command: cp .env.example .env
+      - run:
+          name: setup .env
+          working_directory: ~/fishing-docker/laravel
+          command: echo ${env_file} | base64 --decode > .env
+      - run:
+          name: permission change
+          working_directory: ~/fishing-docker/laravel
+          command: sudo chmod -R 777 ./storage
+      - run:
+          name: aws deploy file
+          working_directory: ~/fishing-docker/laravel
+          command: sh aws.sh
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+        

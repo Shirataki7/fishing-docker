@@ -3,7 +3,7 @@ volumes:
   php-fpm-socket:
 services:
   app:
-    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
+    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing-app:latest
     env_file:
       - ./.db.env
     volumes:
@@ -17,7 +17,7 @@ services:
         awslogs-stream-prefix: ecs
         
   nginx:
-    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
+    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing-nginx:latest
     volumes:
       - php-fpm-socket:/var/run/php-fpm
     container_name: nginx
