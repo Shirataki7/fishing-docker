@@ -96,12 +96,12 @@
                 </div>
             </div>
         </div>
+        </div>
         <div class="text-center">
             {{-- 戻るボタン --}}
             {{Form::open(['route'=>'top','method'=>'get'])}}
             {{Form::submit('戻る',['class'=>'return btn'])}}
             {{Form::close()}}
-        </div>
     </div>
 </div>
 @endsection
