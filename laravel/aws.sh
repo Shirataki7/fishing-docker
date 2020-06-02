@@ -7,11 +7,11 @@ aws ecr get-login-password --region ap-northeast-1 --profile default | docker lo
 #build、タグ付け、push
 cd ../
 docker build -t fishing:latest -f ./infrastructure/docker/build/Dockerfile .
-docker tag fishing:latest 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
+docker tag fishing-app:latest 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing-app:latest
 docker push 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:latest
 
 docker build -t fishing:nginx -f ./infrastructure/docker/build/nginx/Dockerfile .
-docker tag fishing:nginx 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
+docker tag fishing-nginx:latest 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing-nginx:latest
 docker push 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing:nginx
 
 #サービスとタスクの作成起動

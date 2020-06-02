@@ -120,7 +120,7 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: sudo chmod -R 777 ./storage
       - run:
-          name: sh
+          name: aws deploy file
           working_directory: ~/fishing-docker/laravel
           command: sh aws.sh
 
