@@ -6,11 +6,9 @@ jobs:
     working_directory: ~/fishing-docker
     docker:
       - image: hashicorp/terraform:0.12.26
-      - image: circleci/python:3.7.3
     steps:
       - checkout
-      - run: apk --update add curl
-      - run: apk --update add py-pip
+      - run: apk --update add python2 python2-dev py2-pip
       - aws-cli/install
       - aws-cli/configure:
           aws-access-key-id: ${aws_Administrator_access_key}
