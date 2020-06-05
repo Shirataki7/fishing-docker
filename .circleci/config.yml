@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.4
 jobs:
   terraform:
     working_directory: ~/fishing-docker
@@ -6,6 +8,11 @@ jobs:
       - image: hashicorp/terraform:0.12.26
     steps:
       - checkout
+      - aws-cli/install
+      - aws-cli/configure:
+          aws-access-key-id: ${aws_Administrator_access_key}
+          aws-secret-access-key: ${aws_Administrator_secret_access_key}
+          aws-region: ap-northeast-1  
       - run: terraform init
       - run: terraform plan
 
