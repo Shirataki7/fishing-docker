@@ -8,3 +8,9 @@ jobs:
       - checkout
       - run: terraform init
       - run: terraform plan
+
+workflows:
+  version: 2
+  terraform plan:
+    jobs:
+      - terraform
