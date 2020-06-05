@@ -6,14 +6,14 @@ jobs:
     working_directory: ~/fishing-docker
     docker:
       - image: hashicorp/terraform:0.12.26
+      - image: circleci/python:3.7.3
     steps:
       - checkout
-      - run: apk --update add python2 python2-dev py2-pip
-      - aws-cli/install
-      - aws-cli/configure:
-          aws-access-key-id: ${aws_Administrator_access_key}
-          aws-secret-access-key: ${aws_Administrator_secret_access_key}
-          aws-region: ap-northeast-1  
+      - run: apk --update add curl pip3
+      - run: pip3 install aws-cli
+      - run: aws configure set aws_access_key_id ${aws_Administrator_access_key}
+      - run: aws configure set aws_secret_access_key ${aws_Administrator_secret_access_key}
+      - run: aws configure --region ap-northeast-1
       - run: terraform init
       - run: terraform plan
 
