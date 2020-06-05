@@ -13,7 +13,7 @@ jobs:
           name: pipinstall
           command: |
             curl -O https://bootstrap.pypa.io/get-pip.py
-            python3 get-pip.py --user
+            python3 get-pip.py
       - aws-cli/install
       - aws-cli/configure:
           aws-access-key-id: ${aws_Administrator_access_key}
