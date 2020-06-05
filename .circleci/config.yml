@@ -38,7 +38,7 @@ workflows:
       - terraform_plan
       - terraform_apply
           requires:
-            - terraform plan
+            - terraform_plan
           filters:
             branches:
             only: terraform/production
