@@ -16,7 +16,7 @@ terraform {
 }
 
 resource "aws_s3_bucket" "tfstate" {
-  bucket = "fishing-ftstate"
+  bucket = "fishing-tfstate"
   versioning {
     enabled = true
   }
