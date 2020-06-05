@@ -9,11 +9,7 @@ jobs:
       - image: circleci/python:3.7.3
     steps:
       - checkout
-      - run: apt update
-      - run: apt install -y sudo
-      - run:
-          name: pipinstall
-          command: sudo apt install python-pip python3-pip
+      - run: apt-get update && apt-get install -y python-pip python3-pip
 
       - aws-cli/install
       - aws-cli/configure:
