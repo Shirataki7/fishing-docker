@@ -1,9 +1,10 @@
 version: 2.1
 jobs:
-  working_directory: ~/fishing-docker
-  docker:
-    - image: hashicorp/terraform:0.12.26
-  steps:
-    - checkout
-    - run: terraform init
-    - run: terraform plan
+  terraform:
+    working_directory: ~/fishing-docker
+    docker:
+      - image: hashicorp/terraform:0.12.26
+    steps:
+      - checkout
+      - run: terraform init
+      - run: terraform plan
