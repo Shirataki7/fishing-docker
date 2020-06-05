@@ -1,10 +1,14 @@
 version: 2.1
-jobs:
+executors:
   terraform:
     working_directory: ~/fishing-docker
     docker:
       - image: hashicorp/terraform:0.12.26
       - image: circleci/python:3.7.3
+
+jobs:
+  terraform_plan:
+    executor: terraform
     steps:
       - checkout
       - run: apk --update add curl
@@ -14,9 +18,27 @@ jobs:
       - run: aws configure set --profile Administrator aws_secret_access_key ${aws_Administrator_secret_access_key}
       - run: terraform init
       - run: terraform plan
+    
+  terraform_apply:
+    executor: terraform
+    steps:
+      - checkout
+      - run: apk --update add curl
+      - run: apk add py-pip
+      - run: pip install awscli
+      - run: aws configure set --profile Administrator aws_access_key_id ${aws_Administrator_access_key} 
+      - run: aws configure set --profile Administrator aws_secret_access_key ${aws_Administrator_secret_access_key}
+      - run: terraform init
+      - run: terraform apply -auto-approve
 
 workflows:
   version: 2
-  terraform plan:
+  terraform_plan_and_apply:
     jobs:
-      - terraform
+      - terraform_plan
+      - terraform_apply
+          recuires:
+            - terraform plan
+          filters:
+            branches:
+            only: terraform/production
