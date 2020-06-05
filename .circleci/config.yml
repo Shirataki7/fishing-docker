@@ -41,4 +41,4 @@ workflows:
             - terraform_plan
           filters:
             branches:
-            only: terraform/production
+              only: terraform/production
