@@ -36,7 +36,7 @@ workflows:
   terraform_plan_and_apply:
     jobs:
       - terraform_plan
-      - terraform_apply
+      - terraform_apply:
           requires:
             - terraform_plan
           filters:
