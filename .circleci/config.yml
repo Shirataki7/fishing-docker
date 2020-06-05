@@ -9,8 +9,9 @@ jobs:
       - image: circleci/python:3.7.3
     steps:
       - checkout
-      - run: apk --update add curl pip3
-      - run: pip3 install aws-cli
+      - run: apk --update add curl
+      - run: apk --update add pip
+      - run: pip install aws-cli
       - run: aws configure set aws_access_key_id ${aws_Administrator_access_key}
       - run: aws configure set aws_secret_access_key ${aws_Administrator_secret_access_key}
       - run: aws configure --region ap-northeast-1
