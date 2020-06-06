@@ -15,7 +15,7 @@ resource "aws_db_instance" "tsurins_db" {
   instance_class       = "db.t2.micro"
   db_subnet_group_name = aws_db_subnet_group.tsurins_db_subnets.name
   parameter_group_name = "default.mysql5.7"
-  name                 = "tsurins-production"
+  name                 = "tsurins_production"
   port                 = 3306
   username             = data.aws_ssm_parameter.tsurins_db_username.id
   password             = data.aws_ssm_parameter.tsurins_db_password.id
