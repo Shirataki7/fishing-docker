@@ -2,7 +2,7 @@ resource "aws_lb" "tsurins_alb" {
   name               = "tsurins-alb"
   load_balancer_type = "application"
   security_groups    = [aws_security_group.tsurins_security_group.id]
-  subnets            = ["aws_subnet.tsurins_subnet_1a.id","aws_subnet.tsurins_subnet_1c.id"]
+  subnets            = ["aws_subnet.tsurins_subnet_1a.id", "aws_subnet.tsurins_subnet_1c.id"]
 }
 
 resource "aws_alb_target_group" "tsurins_target_group" {
@@ -22,15 +22,15 @@ resource "aws_alb_target_group" "tsurins_target_group" {
   }
 }
 
-resource "aws_lb_listener" "tsurins_alb_listener"{
-    load_balancer_arn=aws_lb.tsurins_alb.arn
-    port=80
-    protocol="HTTP"
+resource "aws_lb_listener" "tsurins_alb_listener" {
+  load_balancer_arn = aws_lb.tsurins_alb.arn
+  port              = 80
+  protocol          = "HTTP"
 
-    default_action{
-        type="forward"
-        target_group_arn=aws_alb_target_group.tsurins_target_group.arn
-    }
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.tsurins_target_group.arn
+  }
 
 }
 
