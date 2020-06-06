@@ -19,7 +19,6 @@ resource "aws_db_instance" "tsurins_db" {
   port                 = 3306
   username             = data.aws_ssm_parameter.tsurins_db_username.id
   password             = data.aws_ssm_parameter.tsurins_db_password.id
-  timezone             = "Asia/Tokyo"
   availability_zone    = "ap-northeast-1a"
 }
 
