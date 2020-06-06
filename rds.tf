@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "tsurins_db_subnets" {
   name       = "tsurins_db"
-  subnet_ids = [aws_subnet.tsurins_db_1a, aws_subnet.tsurins_db_1c]
+  subnet_ids = [aws_subnet.tsurins_db_1a.id, aws_subnet.tsurins_db_1c.id]
   tags = {
     Name = "tsurins_db_subnets"
   }
