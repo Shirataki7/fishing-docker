@@ -2,7 +2,7 @@ resource "aws_lb" "tsurins_alb" {
   name               = "tsurins-alb"
   load_balancer_type = "application"
   security_groups    = [aws_security_group.tsurins_security_group.id]
-  subnets            = ["aws_subnet.tsurins_subnet_1a.id", "aws_subnet.tsurins_subnet_1c.id"]
+  subnets            = [aws_subnet.tsurins_subnet_1a.id, aws_subnet.tsurins_subnet_1c.id]
 }
 
 resource "aws_alb_target_group" "tsurins_target_group" {
