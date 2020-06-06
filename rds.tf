@@ -30,5 +30,5 @@ data "aws_ssm_parameter" "tsurins_db_password" {
 }
 
 data "aws_ssm_parameter" "tsurins_db_username" {
-  name = "tsurins-db-username"
+  name = "tsurins_db_username"
 }
