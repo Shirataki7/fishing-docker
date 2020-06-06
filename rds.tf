@@ -9,7 +9,7 @@ resource "aws_db_subnet_group" "tsurins_db_subnets" {
 resource "aws_db_instance" "tsurins_db" {
   identifier           = "tsurins-production"
   allocated_storage    = 20
-  storage_type         = "pg2"
+  storage_type         = "gp2"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
