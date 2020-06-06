@@ -34,9 +34,3 @@ resource "aws_lb_listener" "tsurins_alb_listener"{
 
 }
 
-# resource "aws_alb_target_group_attachment" "tsurins_attachment"{
-#     count=2
-#     target_group_arn=aws_alb_target_group.tsurins_target_group.arn
-#     target_id=
-#     port=80
-# }
