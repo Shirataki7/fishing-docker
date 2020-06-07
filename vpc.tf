@@ -124,4 +124,12 @@ resource "aws_security_group_rule" "tsurins_alb_security_group" {
   security_group_id = aws_security_group.tsurins_security_group.id
 }
 
+resource "aws_security_group_rule" "tsurins_ssh_security_group" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.tsurins_security_group.id
+}
 
