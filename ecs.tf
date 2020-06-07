@@ -34,4 +34,12 @@ resource "aws_appautoscaling_target" "tsurins_autoscaling_target" {
   service_namespace  = "ecs"
 }
 
+resource "aws_ecs_capacity_provider" "tsurins_capacity_provider" {
+  name = "tsurins_capacity_provider"
+
+  auto_scaling_group_provider {
+    auto_scaling_group_arn         = aws_autoscaling_group.tsurins_asg.arn
+    managed_termination_protection = "ENABLED"
+  }
+}
 
