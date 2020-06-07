@@ -132,3 +132,12 @@ resource "aws_security_group_rule" "tsurins_ssh_security_group" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.tsurins_security_group.id
 }
+
+resource "aws_security_group_rule" "tsurins_self_security_group" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = -1
+  self              = true
+  security_group_id = aws_security_group.tsurins_security_group.id
+}
