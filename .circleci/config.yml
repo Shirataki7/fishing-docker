@@ -106,7 +106,7 @@ jobs:
             sudo chmod +x /usr/local/bin/ecs-cli
             ecs-cli --version
             ecs-cli configure profile --profile-name ecs-cli --access-key ${aws_Administrator_access_key} --secret-key ${aws_Administrator_secret_access_key}
-            ecs-cli configure --cluster fishing-cluster --default-launch-type EC2 --region ap-northeast-1
+            ecs-cli configure --cluster tsurins-cluster --default-launch-type EC2 --region ap-northeast-1
       - run:
           name: cp .env
           working_directory: ~/fishing-docker/laravel
