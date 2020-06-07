@@ -95,8 +95,8 @@ jobs:
       - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
-          aws-access-key-id: ${aws_access_key_id}
-          aws-secret-access-key: ${aws_secret_access_key}
+          aws-access-key-id: ${aws_Administrator_access_key}
+          aws-secret-access-key: ${aws_Administrator_secret_access_key}
           aws-region: ap-northeast-1          
       - run: aws sts get-caller-identity
       - run:
@@ -105,7 +105,7 @@ jobs:
             sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest
             sudo chmod +x /usr/local/bin/ecs-cli
             ecs-cli --version
-            ecs-cli configure profile --profile-name ecs-cli --access-key ${aws_access_key_id} --secret-key ${aws_secret_access_key}
+            ecs-cli configure profile --profile-name ecs-cli --access-key ${aws_Administrator_access_key} --secret-key ${aws_Administrator_secret_access_key}
             ecs-cli configure --cluster fishing-cluster --default-launch-type EC2 --region ap-northeast-1
       - run:
           name: cp .env
