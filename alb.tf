@@ -14,7 +14,6 @@ resource "aws_alb_target_group" "tsurins_target_group" {
   health_check {
     interval            = 30
     path                = "/"
-    port                = 80
     protocol            = "HTTP"
     timeout             = 5
     unhealthy_threshold = 2
