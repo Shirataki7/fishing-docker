@@ -73,14 +73,23 @@ header {
 
 .top {
     background-image: url("/images/sea.jpg");
-    min-height: 50vh;
-    text-align: center;
+    min-height: 50vh;   
     color: #3d4040;
     font-size: 1.1rem;
 }
 
 .top h1 {
-    padding-top: 15%;
+    padding-top: 10%;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-weight: 700;
+    color: #535252;
+}
+
+.top p{
+    padding:  5px 10px;
+    text-align: center;
+    color: #636b6f;
 }
 
 .timeline {
@@ -105,6 +114,14 @@ header {
 .rec_link a {
     font-size: 17px;
     color: rgb(68, 148, 185);
+}
+@media(max-width:600px) {
+    .top h1{
+        padding-top:15%;
+    }
+    .top p{
+        font-size: 1rem;
+    }
 }
 
 /* user_toppage */
