@@ -73,7 +73,7 @@ header {
 
 .top {
     background-image: url("/images/sea.jpg");
-    min-height: 50vh;   
+    min-height: 50vh;
     color: #3d4040;
     font-size: 1.1rem;
 }
@@ -86,8 +86,8 @@ header {
     color: #535252;
 }
 
-.top p{
-    padding:  5px 10px;
+.top p {
+    padding: 5px 10px;
     text-align: center;
     color: #636b6f;
 }
@@ -115,11 +115,12 @@ header {
     font-size: 17px;
     color: rgb(68, 148, 185);
 }
+
 @media(max-width:600px) {
-    .top h1{
-        padding-top:15%;
+    .top h1 {
+        padding-top: 15%;
     }
-    .top p{
+    .top p {
         font-size: 1rem;
     }
 }
