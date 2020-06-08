@@ -120,9 +120,9 @@ jobs:
           working_directory: ~/fishing-docker/laravel
           command: sudo chmod -R 777 ./storage
       - run:
-          name: permission change /storage/framework/views/
+          name: clear view
           working_directory: ~/fishing-docker/laravel
-          command: chmod 777 storage/framework/views/
+          command: php artisan view:clear
       - run:
           name: aws deploy file
           working_directory: ~/fishing-docker/laravel
@@ -139,4 +139,5 @@ workflows:
           filters:
             branches:
               only: master
+
         
