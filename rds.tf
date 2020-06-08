@@ -23,8 +23,6 @@ resource "aws_db_instance" "tsurins_db" {
   availability_zone      = "ap-northeast-1a"
 }
 
-
-
 data "aws_ssm_parameter" "tsurins_db_password" {
   name = "tsurins_db_password"
 }

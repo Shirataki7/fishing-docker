@@ -3,7 +3,6 @@ provider "aws" {
   profile = "Administrator"
 }
 
-
 terraform {
   required_version = "0.12.26"
   backend "s3" {
