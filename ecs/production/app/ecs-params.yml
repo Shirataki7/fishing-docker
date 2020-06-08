@@ -9,18 +9,18 @@ task_definition:
     app:
       essential: true
       secrets:
-       - value_from: fishing-db-host
+       - value_from: tsurins_db_host
          name: DB_HOST
-       - value_from: fishing-db-username
+       - value_from: tsurins_db_username
          name: DB_USERNAME
-       - value_from: fishing-db-password
+       - value_from: tsurins_db_password
          name: DB_PASSWORD
 
 run_params:
   network_configuration:
     awsvpc_configuration:
       subnets: 
-       - subnet-059caa4e3fcb5985e
+       - subnet-07bdd7d22859f3258
       security_groups:
-       - sg-09dfacbda5b0949d6
+       - sg-05d9fa576e7db2620
       assign_public_ip: ENABLED

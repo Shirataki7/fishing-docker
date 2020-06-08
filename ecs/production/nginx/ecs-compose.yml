@@ -3,7 +3,7 @@ volumes:
   php-fpm-socket:
 services:
   nginx:
-    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/fishing-nginx:latest
+    image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/tsurins-nginx:latest
     volumes:
       - php-fpm-socket:/var/run/php-fpm
     container_name: nginx
@@ -15,7 +15,7 @@ services:
     logging:
       driver: awslogs
       options:
-        awslogs-group: /ecs/nginx-task
+        awslogs-group: /ecs/tsurins-nginx
         awslogs-region: ap-northeast-1
         awslogs-stream-prefix: ecs
 
