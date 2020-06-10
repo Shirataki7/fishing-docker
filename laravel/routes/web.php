@@ -23,6 +23,9 @@ Route::get('fish_records/new',function(){
     return view('fishrecord');
 })->name('new');
 
+Route::get('fish_records/simple',function(){
+    return view('fishrecord_simple');
+})->name('simple_form');
 //釣り記録登録ボタンを押した時の処理
 Route::post('fish_records','FishRecordController@create');
 

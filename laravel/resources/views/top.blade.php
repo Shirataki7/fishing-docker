@@ -6,8 +6,9 @@
 @section('content')
 <div class="container">
     <div class="top">
-        <h1>サービス名</h1>
-        <p>サービス説明サービス説明サービス説明サービス説明サービス説明サービス説明サービス説明サービス説明</p>
+        <h1>TSURINS</h1>
+        <p>あなたの釣りを見える化します。</p>
+        <p>サイズや写真を記録して今日釣った魚をみんなに自慢しましょう！</p>
     </div>
     <div class="timeline">
         <h3><i class="fas fa-cat"></i> TIME LINE</h3>

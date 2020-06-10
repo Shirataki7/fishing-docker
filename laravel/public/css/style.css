@@ -74,13 +74,22 @@ header {
 .top {
     background-image: url("/images/sea.jpg");
     min-height: 50vh;
-    text-align: center;
     color: #3d4040;
     font-size: 1.1rem;
 }
 
 .top h1 {
-    padding-top: 15%;
+    padding-top: 10%;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-weight: 700;
+    color: #535252;
+}
+
+.top p {
+    padding: 5px 10px;
+    text-align: center;
+    color: #636b6f;
 }
 
 .timeline {
@@ -105,6 +114,15 @@ header {
 .rec_link a {
     font-size: 17px;
     color: rgb(68, 148, 185);
+}
+
+@media(max-width:600px) {
+    .top h1 {
+        padding-top: 15%;
+    }
+    .top p {
+        font-size: 1rem;
+    }
 }
 
 /* user_toppage */
@@ -172,8 +190,7 @@ header {
 
 .form_wrapper {
     max-width: 1400px;
-    margin: 0 auto;
-    background-image: url("/public/images/sea_shadow.jpg");
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
 }
@@ -218,6 +235,13 @@ header {
 .preview {
     text-align: center;
     margin: 10px;
+}
+
+.simple_form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
 }
 
 @media(max-width:600px) {

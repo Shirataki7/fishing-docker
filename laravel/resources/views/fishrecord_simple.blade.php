@@ -7,11 +7,6 @@
     <div class="form_wrapper">
         <div class="form">
             <h3><i class="fas fa-pencil-alt"></i> 釣り記録投稿</h3>
-            <div class ="simple_form">
-            {{Form::open(['route'=>'simple_form','method'=>'get'])}}
-            <p>初心者さんにもおすすめ！<a href={{route('simple_form')}}>簡易版</a></p>
-            {{Form::close()}}
-            </div>
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -24,13 +19,14 @@
             <div class="preview">
                 <img class="preview-cover" alt="" src="" style="height: 200px;" />
             </div>
+            
             {{Form::open(['action'=>'FishRecordController@create','files'=>true,'class'=>'open_form'])}}
             <div class='form-row'>
                 {{ Form::label('fish_image','画像',['class'=>'col-form-label'])}}
                 <div class="col">
                     {{ Form::file('fish_image',['class'=>'form-control-file'])}}
                 </div>
-                {{{ Form::label('fishing_date', '釣行日',['class'=>'col-form-label',]) }}}
+                {{{ Form::label('fishing_date', '釣行日',['class'=>'col-form-label']) }}}
                 <div class="col">
                     {{ Form::date('fishing_date',\Carbon\Carbon::now(),['class'=>'form-control']) }}
                 </div>               
@@ -57,34 +53,9 @@
                 </div>
             </div>
             <div class='form-row '>
-                {{ Form::label('other_fish','外道',['class'=>'col-form-label'])}}
+                {{ Form::label('other_fish','外道(本命じゃない魚)',['class'=>'col-form-label'])}}
                 <div class="col">
                     {{ Form::text('other_fish',null,['class'=>'form-control'])}}
-                </div>
-                {{ form::label('weather','天気',['class'=>'col-form-label'])}}
-                <div class="col">
-                    {{ Form::select('weather',[''=>'選択してください','晴れ'=>'晴れ','曇り'=>'曇り','雨'=>'雨'],null,['class'=>'form-control'])}}
-                </div>
-            </div>
-            <div class='form-row '>
-                {{ Form::label('temperature','気温',['class'=>'col-form-label'])}}
-                <div class="col">
-                    {{ Form::selectRange('temperature',0,40,'', ['placeholder' => '&#8451;','class'=>'form-control'])}}
-                </div>
-                {{ Form::label('depth','棚',['class'=>'col-form-label'])}}
-                <div class="col">
-                    {{ Form::selectRange('depth',5,100,'', ['placeholder' => 'm','class'=>'form-control'])}}
-                </div>
-
-            </div>
-            <div class='form-row '>
-                {{ Form::label('tool','仕掛け',['class'=>'col-form-label'])}}
-                <div class="col">
-                    {{ Form::text('tool',null,['class'=>'form-control'])}}
-                </div>
-                {{ Form::label('tackle','タックル',['class'=>'col-form-label'])}}
-                <div class="col">
-                    {{ Form::text('tackle',null,['class'=>'form-control'])}}
                 </div>
             </div>
             <div class='form-row '>
@@ -99,7 +70,7 @@
             </div>
             <div class="text-center">
                 {{-- 戻るボタン --}}
-                {{Form::open(['route'=>'user','method'=>'get'])}}
+                {{Form::open(['route'=>'new','method'=>'get'])}}
                 {{Form::submit('戻る',['class'=>'btn btn-secondary'])}}
                 {{Form::close()}}
             </div>
