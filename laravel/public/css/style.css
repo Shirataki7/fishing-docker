@@ -190,8 +190,7 @@ header {
 
 .form_wrapper {
     max-width: 1400px;
-    margin: 0 auto;
-    background-image: url("/public/images/sea_shadow.jpg");
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
 }
@@ -236,6 +235,13 @@ header {
 .preview {
     text-align: center;
     margin: 10px;
+}
+
+.simple_form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
 }
 
 @media(max-width:600px) {
