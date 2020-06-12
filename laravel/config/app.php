@@ -178,6 +178,7 @@ return [
         //サービス層
         App\Providers\NoticeServiceProvider::class,
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -230,9 +231,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         //定数追加
-        'NoticeConst'=> App\Consts\NoticeConst::class,
+        'NoticeConst' => App\Consts\NoticeConst::class,
         //Service層
         'NoticeService' => App\Facades\NoticeService::class,
+
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

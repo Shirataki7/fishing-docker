@@ -99,3 +99,8 @@ Route::get('notices/{id}/comment','NoticeController@comment_notice_read')->name(
 
 //フレンド通知のstate変更
 Route::get('notices/{id}/friend','NoticeController@friend_notice_read')->name('friend_state');
+
+//twitterログイン
+Route::get('/auth/twitter', 'OAuthLoginController@getTwitterAuth');
+//twitterコールバック
+Route::get('/auth/twitter/callback', 'OAuthLoginController@authTwitterCallback');

@@ -93,6 +93,10 @@
                     {{ Form::textarea('memo',null,['class'=>'form-control'])}}
                 </div>
             </div>
+            <div class ='twitter'>
+                {{ Form::label('twitter','Twitterで共有する')}}
+                {{ Form::checkbox('twitter','ok')}}
+            </div>
             <div class="text-right">
                 {{ Form::submit('送信',['class'=>'btn btn-dark'])}}
                 {{ Form::close()}}
