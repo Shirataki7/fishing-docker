@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Twitter_account extends Model
+class TwitterAccount extends Model
 {
     protected $table = 'twitter_accounts';
 

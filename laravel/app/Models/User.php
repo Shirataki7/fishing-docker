@@ -64,6 +64,6 @@ class User extends Authenticatable
 
     public function twitter_account()
     {
-        return $this->hasOne(twitter_account::class);
+        return $this->hasOne(TwitterAccount::class);
     }
 }

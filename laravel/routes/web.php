@@ -102,5 +102,6 @@ Route::get('notices/{id}/friend','NoticeController@friend_notice_read')->name('f
 
 //twitterログイン
 Route::get('/auth/twitter', 'OAuthLoginController@getTwitterAuth');
+
 //twitterコールバック
 Route::get('/auth/twitter/callback', 'OAuthLoginController@authTwitterCallback');
