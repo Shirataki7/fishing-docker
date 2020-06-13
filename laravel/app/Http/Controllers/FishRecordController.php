@@ -12,6 +12,7 @@ use App\Models\NoticePostAction;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Facades\NoticeService;
+use App\Models\TwitterAccount;
 
 class FishRecordController extends Controller
 {
@@ -44,6 +45,13 @@ class FishRecordController extends Controller
         $fish_records->memo = $request->memo;
 
         $fish_records->save();
+
+        if ($request->twitter == 'ok') {
+            $twitter_account = TwitterAccount::where('user_id', Auth::id())->first();
+            if (empty($twitter_account)) {
+                return redirect()->to('/auth/twitter');
+            }
+        }
         return redirect()->action('FishRecordController@index');
     }
     public function index()

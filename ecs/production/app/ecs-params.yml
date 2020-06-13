@@ -15,6 +15,10 @@ task_definition:
          name: DB_USERNAME
        - value_from: tsurins_db_password
          name: DB_PASSWORD
+       - value_from: tsurins_twitter_api_key
+         name: TWITTER_CLIENT_ID
+       - value_from: tsurins_twitter_api_secret
+         name: TWITTER_CLIENT_SECRET
 
 run_params:
   network_configuration:

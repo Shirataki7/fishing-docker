@@ -12,6 +12,7 @@
         "ext-intl": "*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
+        "laravel/socialite": "^4.4",
         "laravel/tinker": "^1.0",
         "laravel/ui": "1.2.0",
         "laravelcollective/html": "^6.1",

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','sex',
+        'name', 'email', 'password', 'sex',
     ];
 
     /**
@@ -37,23 +37,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function fish_records(){
+    public function fish_records()
+    {
         return $this->hasMany(FishRecord::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function friends(){
-        return $this->hasMany(Friend::class,'friend_id','id');
+    public function friends()
+    {
+        return $this->hasMany(Friend::class, 'friend_id', 'id');
     }
 
-    public function notice_friends(){
+    public function notice_friends()
+    {
         return $this->hasMany(NoticeFriendAction::class);
     }
 
-    public function notice_posts(){
+    public function notice_posts()
+    {
         return $this->hasMany(NoticePostAction::class);
+    }
+
+    public function twitter_account()
+    {
+        return $this->hasOne(TwitterAccount::class);
     }
 }

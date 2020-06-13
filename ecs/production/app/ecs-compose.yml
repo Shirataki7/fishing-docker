@@ -5,7 +5,7 @@ services:
   app:
     image: 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com/tsurins-app:latest
     env_file:
-      - ./.db.env
+      - ./.env.production
     volumes:
       - php-fpm-socket:/var/run/php-fpm
     container_name: laravel
