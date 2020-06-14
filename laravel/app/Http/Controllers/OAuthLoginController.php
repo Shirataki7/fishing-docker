@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\FishRecord;
 use App\Models\TwitterAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +30,26 @@ class OAuthLoginController extends Controller
 
             $twitter_user->save();
 
-            return redirect()->to('/fish_records');
+            return redirect()->route('tweet');
 
         } catch (InvalidArgumentException $e) {
             return redirect()->to('/fish_records');
         }
+    }
+
+    public function tweet_post()
+    {   
+        $user=TwitterAccount::where('user_id',Auth::id())->first();
+        $fish_record=FishRecord::where('user_id',Auth::id())->orderBy('created_at', 'desc')->first();
+        $twitter=new TwitterOAuth(env('TWITTER_CLIENT_ID'),env('TWITTER_CLIENT_SECRET'),
+        $user->token,$user->token_secret);
+        $tweet='TSURINSに釣り記録を投稿しました！'. PHP_EOL .
+        $fish_record->harbor.'で'.$fish_record->fish_name.'を釣ったよ！'. PHP_EOL .
+        'http://www.tsurins.com/fish_records/'.$fish_record->id. PHP_EOL .
+        '#TSURINS #釣り #fishing #釣り人';
+        $twitter->post('statuses/update',['status'=>$tweet]);
+
+        return redirect()->to('fish_records');
+
     }
 }
