@@ -18,6 +18,7 @@
   - RDS
   - SSM
   - Route53
+  - S3
 - [Terraform](https://github.com/Shirataki7/fishing-docker/tree/terraform/production)
 - CircleCI
 
