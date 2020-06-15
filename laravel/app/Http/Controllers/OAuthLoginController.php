@@ -32,7 +32,7 @@ class OAuthLoginController extends Controller
 
             return redirect()->route('tweet');
         } catch (InvalidArgumentException $e) {
-            return redirect()->away('https://www.google.com');
+            return redirect()->to('/fish_records');
         }
     }
 }
