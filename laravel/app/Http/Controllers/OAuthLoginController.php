@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\FishRecord;
 use App\Models\TwitterAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +30,7 @@ class OAuthLoginController extends Controller
 
             $twitter_user->save();
 
-            return redirect()->to('/fish_records');
-
+            return redirect()->route('tweet');
         } catch (InvalidArgumentException $e) {
             return redirect()->to('/fish_records');
         }

@@ -105,3 +105,4 @@ Route::get('/auth/twitter', 'OAuthLoginController@getTwitterAuth');
 
 //twitterコールバック
 Route::get('/auth/twitter/callback', 'OAuthLoginController@authTwitterCallback');
+
