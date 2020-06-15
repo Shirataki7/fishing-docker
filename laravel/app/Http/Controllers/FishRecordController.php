@@ -46,14 +46,6 @@ class FishRecordController extends Controller
 
         $fish_records->save();
 
-        if ($request->twitter == 'ok') {
-            $twitter_account = TwitterAccount::where('user_id', Auth::id())->first();
-            if (empty($twitter_account)) {
-                return redirect()->to('/auth/twitter');
-            }else{
-                return redirect()->route('tweet');
-            }
-        }
         return redirect()->action('FishRecordController@index');
     }
     public function index()

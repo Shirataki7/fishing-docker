@@ -58,6 +58,12 @@
                         <p>棚 / {{$rec['depth']}}m</p>
                     </div>
                     <div class="rec_btn">
+                        <div class='twitter_shere'>
+                            <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
+                                &text=釣り記録を投稿しました！%0a{{$rec->harbor}}で{{$rec->fish_name}}を釣ったよ！
+                                &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
+                                rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
+                        </div>
                         <div class="rec_edit">
                             {{Form::open(['route'=>['edit',$rec['id']]])}}
                             {{Form::submit('修正',['name'=>'edit[]'],$rec['id'])}}

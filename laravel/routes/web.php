@@ -106,5 +106,3 @@ Route::get('/auth/twitter', 'OAuthLoginController@getTwitterAuth');
 //twitterコールバック
 Route::get('/auth/twitter/callback', 'OAuthLoginController@authTwitterCallback');
 
-//twitter投稿
-Route::get('/auth/twitter/post','OAuthLoginController@tweet_post')->name('tweet');

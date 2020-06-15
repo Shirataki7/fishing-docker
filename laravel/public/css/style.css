@@ -125,6 +125,7 @@ header {
     }
 }
 
+
 /* user_toppage */
 
 .user_contents {
@@ -448,6 +449,13 @@ header {
 
 .fa-cloud {
     color: slategray;
+}
+
+.fa-twitter{
+    color:#28b6da;
+    line-height: 33px;
+    font-size: 20px;
+    margin: 0 5px;
 }
 
 @media(max-width:600px) {

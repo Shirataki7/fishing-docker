@@ -64,6 +64,12 @@
                         <p>棚 / {{$rec['depth']}}m</p>
                     </div>
                     <div class="rec_btn">
+                        <div class='twitter_shere'>
+                            <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
+                                &text={{$rec->user->name}}さんの釣った{{$rec->fish_name}}がすごい！
+                                &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
+                                rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
+                        </div>
                         @if($rec->user_id == Auth::id())
                         <div class="rec_edit">
                             {{Form::open(['route'=>['edit',$rec['id']]])}}

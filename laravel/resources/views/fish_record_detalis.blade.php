@@ -11,8 +11,7 @@
     <div class="rec_detalis_list">
         <div class="rec_detalis_image">
             @if($rec['fish_image'] != null)
-            <a href="{{$rec['fish_image']}}" data-lightbox="group"><img
-                    src="{{$rec['fish_image']}}"></a>
+            <a href="{{$rec['fish_image']}}" data-lightbox="group"><img src="{{$rec['fish_image']}}"></a>
             @else
             <img src="{{asset('/images/no_image.jpg')}}">
             @endif
@@ -59,6 +58,12 @@
                     <p>棚 / {{$rec['depth']}}m</p>
                 </div>
                 <div class="rec_btn">
+                    <div class='twitter_shere'>
+                        <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
+                            &text=釣り記録を投稿しました！%0a{{$rec->harbor}}で{{$rec->fish_name}}を釣ったよ！
+                            &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
+                            rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
+                    </div>
                     @if($rec->user_id == Auth::id())
                     <div class="rec_edit">
                         {{Form::open(['route'=>['edit',$rec['id']]])}}
@@ -101,8 +106,8 @@
                         {{Form::close()}}
                     </div>
                 </div>
-            
-            @endif
+
+                @endif
             </div>
             @endforeach
 
@@ -113,7 +118,7 @@
                 {{Form::hidden('fish_record_id', $rec['id'])}}
                 {{Form::submit('送信',['class'=>'add_comment'])}}
                 {{Form::close()}}
-                
+
                 @if (session('flash_message'))
                 <div class="flash_message">
                     {{ session('flash_message') }}
