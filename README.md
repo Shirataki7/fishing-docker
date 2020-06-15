@@ -15,6 +15,7 @@
   - CloudWatch
   - ALB
   - RDS
+  - SSM
   - Route53
 - Terraform
 - CircleCI
