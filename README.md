@@ -10,12 +10,12 @@
 - Laravel(PHP)
 - Docker
 - AWS
- - ECR
- - ECS
- - CloudWatch
- - ALB
- - RDS
- - Route53
+  - ECR
+  - ECS
+  - CloudWatch
+  - ALB
+  - RDS
+  - Route53
 - Terraform
 - CircleCI
 
