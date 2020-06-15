@@ -7,8 +7,15 @@
 釣り記録の投稿はもちろん、フレンド機能やコメント機能、そして通知機能をつけ、よりユーザー間で釣りの楽しさや技術を共有できるようにしました。
 
 ## 使った言語やサービス
-- php:laravelを用いて開発しました。
-- サーバーはAWSを使用。terraformで構築したのでいつでも簡単に作り直すことができます。[terrafrom](https://github.com/Shirataki7/fishing-docker/tree/terraform/production)
-- シェルスクリプトを作成し、AWSのECRのリポジトリへのpushとECSへのデプロイをコマンド一つで行えるようにしました。[aws.sh](./laravel/aws.sh)
-- CircleCIを使用したのでテストの自動化とAWSへの自動デプロイを行うことができます。[config.yml](./.circleci/config.yml)
+- Laravel(PHP)
+- Docker
+- AWS
+ - ECR
+ - ECS
+ - CloudWatch
+ - ALB
+ - RDS
+ - Route53
+- Terraform
+- CircleCI
 
