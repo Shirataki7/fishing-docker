@@ -23,3 +23,8 @@
 - [Terraform](https://github.com/Shirataki7/fishing-docker/tree/terraform/production)
 - CircleCI
 
+## ER図
+- テーブル設計  
+[tableのER図](https://user-images.githubusercontent.com/61406078/84681384-00ed3e00-af6f-11ea-85e2-6626945c112e.jpg)
+
+
