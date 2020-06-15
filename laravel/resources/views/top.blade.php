@@ -6,9 +6,9 @@
 @section('content')
 <div class="container">
     <div class="top">
-        <h1>TSURINS</h1>
-        <p>あなたの釣りを見える化します。</p>
-        <p>サイズや写真を記録して今日釣った魚をみんなに自慢しましょう！</p>
+        <img src="{{asset('/images/logo.png')}}">
+        <p id='top_line1'>あなたの釣りを見える化します。</p>
+        <p id ='top_line2'>サイズや写真を記録して今日釣った魚をみんなに自慢しましょう！</p>
     </div>
     <div class="timeline">
         <h3><i class="fas fa-cat"></i> TIME LINE</h3>

@@ -76,20 +76,35 @@ header {
     min-height: 50vh;
     color: #3d4040;
     font-size: 1.1rem;
+    text-align: center;
 }
 
-.top h1 {
+/* .top h1 {
     padding-top: 10%;
     text-align: center;
     letter-spacing: .1rem;
     font-weight: 700;
     color: #535252;
+} */
+
+.top img{
+    padding-top: 10%;
+    width: 450px;
+    margin-bottom: 10px;
 }
 
-.top p {
-    padding: 5px 10px;
+#top_line1 {
+    margin-top: 40px;
     text-align: center;
-    color: #636b6f;
+    color: #5e6669;
+    font-size: 20px;
+}
+#top_line2{
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #5e6669;
+    font-size: 20px;
 }
 
 .timeline {
@@ -117,11 +132,15 @@ header {
 }
 
 @media(max-width:600px) {
-    .top h1 {
+    .top img {
         padding-top: 15%;
+        width:80%;
     }
-    .top p {
-        font-size: 1rem;
+    #top_line1 {
+        font-size: 1em;
+    }
+    #top_line2{
+        font-size: 1em;
     }
 }
 

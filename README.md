@@ -1,7 +1,7 @@
 # :fish: TSURINS :fish:
 [TSURINS](http://www.tsurins.com/)  
 
-![tsurins_top](https://user-images.githubusercontent.com/61406078/84632349-bc8b7f00-af29-11ea-8dc4-7dd1cfd01da7.png)
+![tsurins_top](https://user-images.githubusercontent.com/61406078/84660204-75b27f00-af53-11ea-8b81-a6d3a66ccc2f.png)
 
 私の趣味が釣りなので、みんなで釣りを共有できるサービスを作りました！  
 釣り記録の投稿はもちろん、フレンド機能やコメント機能  
@@ -9,6 +9,7 @@
 
 ## 使った言語やサービス
 - Laravel(PHP)
+- MySQL
 - Docker
 - AWS
   - ECR
