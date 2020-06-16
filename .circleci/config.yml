@@ -107,7 +107,7 @@ jobs:
             ecs-cli --version
             ecs-cli configure profile  --access-key ${aws_administrator_access_key} --secret-key ${aws_administrator_secret_access_key}
             ecs-cli configure --cluster tsurins-cluster --default-launch-type EC2 --region ap-northeast-1
-      - run: aws configure list --profile default
+      - run: export AWS_DEFAULT_PROFILE=default
       - run:
           name: cp .env
           working_directory: ~/fishing-docker/laravel
