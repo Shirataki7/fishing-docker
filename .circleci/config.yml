@@ -123,7 +123,7 @@ jobs:
           name: clear view
           working_directory: ~/fishing-docker/laravel
           command: php artisan view:clear
-      - run: aws configure list
+      - run: aws configure list --profile default
       - run:
           name: aws deploy file
           working_directory: ~/fishing-docker/laravel
