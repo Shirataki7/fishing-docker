@@ -125,6 +125,7 @@ jobs:
           command: php artisan view:clear
       - run: aws configure list --profile default
       - run: cat ~/.aws/config
+      - run: cat ~/.aws/credentials
       - run:
           name: aws deploy file
           working_directory: ~/fishing-docker/laravel
