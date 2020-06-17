@@ -1,7 +1,7 @@
 #!/bin/sh
-
 AWSID=$(aws sts get-caller-identity | jq -r  .Account)
 
+cat ~/fishing-docker
 aws ecr get-login-password --region ap-northeast-1 --profile default | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com
 
 #build、タグ付け、push
