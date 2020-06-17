@@ -1,5 +1,5 @@
 version: "3.0"
-volumes:
+volumes: #テスト
   db-store:
   php-fpm-socket:
 services:
