@@ -2,7 +2,7 @@
 
 AWSID=$(aws sts get-caller-identity | jq -r  .Account)
 
-aws ecr get-login-password --region ap-northeast-1 --profile test_user | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com
+aws ecr get-login-password --region ap-northeast-1 --profile default | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com
 
 if [$? = 0]; then
 
