@@ -33,7 +33,7 @@ jobs:
       - run: 
           name: yarn install
           working_directory: ~/fishing-docker/laravel
-      - run: yarn install 
+          command: yarn install 
       - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
