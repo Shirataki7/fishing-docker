@@ -83,12 +83,12 @@ jobs:
           keys:
             - node-v2-{{ checksum "~/fishing-docker/laravel/package-lock.json" }}
             - node-v2-
+      - run: yarn install 
+      - save_cache: 
+          key: node-v1-{{ checksum "./laravel/package-lock.json" }}
+          paths:
+            - ~/fishing-docker
       - run: cat ~/fishing-docker/laravel/aws.sh
-      # - run: yarn install 
-      # - save_cache: 
-      #     key: node-v1-{{ checksum "./laravel/package-lock.json" }}
-      #     paths:
-      #       - ./laravel
       # - aws-cli/install
       # - setup_remote_docker
       # - aws-cli/configure:
