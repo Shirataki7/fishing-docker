@@ -21,28 +21,19 @@ jobs:
       - run: sudo apt-get install default-mysql-server
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update
-      - restore_cache: 
-          keys:
-            - composer-v1-{{ checksum "./laravel/composer.lock" }}
-            - composer-v1-
-          paths: 
-            - ./laravel
-      - run: composer install -n --prefer-dist --working-dir=./laravel
-      - save_cache: 
-          key: composer-v1-{{ checksum "./laravel/composer.lock" }}
-          paths:
-            - ./laravel
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "./laravel/package-lock.json" }}
-            - node-v1-
-          paths: 
-            - ./laravel
-      - run: yarn install 
-      - save_cache: 
-          key: node-v1-{{ checksum "./laravel/package-lock.json" }}
-          paths:
-            - ./laravel
+      - run: composer install --working-dir=./laravel
+      - run: 
+          name: npm install
+          working_directory: ~/fishing-docker/laravel
+          command: npm install
+      - run: 
+          name: npm run dev
+          working_directory: ~/fishing-docker/laravel
+          command: npm run dev
+      - run: 
+          name: yarn install
+          working_directory: ~/fishing-docker/laravel
+          command: yarn install 
       - run: 
           name: .env
           working_directory: ~/fishing-docker/laravel
@@ -83,7 +74,6 @@ jobs:
           name: yarn install
           working_directory: ~/fishing-docker/laravel
           command: yarn install 
-      - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
           aws-access-key-id: ${aws_access_key_id}
