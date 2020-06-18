@@ -68,8 +68,8 @@ jobs:
     executor: laravel-images
     steps:
       - checkout
+      - run: sudo apt-get update
       - run: cat ~/fishing-docker/laravel/aws.sh
-      # - run: sudo apt-get update
       # - run: sudo composer self-update
       # - restore_cache: 
       #     keys:
