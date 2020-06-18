@@ -78,7 +78,8 @@ jobs:
       - aws-cli/configure:
           aws-access-key-id: ${aws_access_key_id}
           aws-secret-access-key: ${aws_secret_access_key}
-          aws-region: ap-northeast-1          
+          aws-region: ap-northeast-1
+      - aws-cli/install        
       - run: aws sts get-caller-identity
       - run:
           name: setup ecs-cli
