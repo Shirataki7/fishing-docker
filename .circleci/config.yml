@@ -74,7 +74,6 @@ jobs:
           name: yarn install
           working_directory: ~/fishing-docker/laravel
           command: yarn install 
-      - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
           aws-access-key-id: ${aws_access_key_id}
