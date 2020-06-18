@@ -74,18 +74,14 @@ jobs:
           keys:
             - composer-v2-{{ checksum "~/fishing-docker/laravel/composer.lock" }}
             - composer-v2-
+      - run: composer install -n --prefer-dist --working-dir=./laravel
+      - save_cache: 
+          key: composer-v2-{{ checksum "~/fishing-docker/laravel/composer.lock" }}
+      - restore_cache:
+          keys:
+            - node-v2-{{ checksum "~/fishing-docker/laravel/package-lock.json" }}
+            - node-v2-
       - run: cat ~/fishing-docker/laravel/aws.sh
-      # - run: composer install -n --prefer-dist --working-dir=./laravel
-      # - save_cache: 
-      #     key: composer-v1-{{ checksum "./laravel/composer.lock" }}
-      #     paths:
-      #       - ./laravel
-      # - restore_cache:
-      #     keys:
-      #       - node-v1-{{ checksum "./laravel/package-lock.json" }}
-      #       - node-v1-
-      #     paths: 
-      #       - ./laravel
       # - run: yarn install 
       # - save_cache: 
       #     key: node-v1-{{ checksum "./laravel/package-lock.json" }}
