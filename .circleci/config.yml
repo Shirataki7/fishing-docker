@@ -70,24 +70,10 @@ jobs:
       - checkout
       - run: sudo apt-get update
       - run: sudo composer self-update
-      - restore_cache: 
-          keys:
-            - composer-v2-{{ checksum "~/fishing-docker/laravel/composer.lock" }}
-            - composer-v2-
-      - run: composer install -n --prefer-dist --working-dir=./laravel
-      - save_cache: 
-          key: composer-v2-{{ checksum "./laravel/composer.lock" }}
-          paths:
-            - ~/fishing-docker
-      - restore_cache:
-          keys:
-            - node-v2-{{ checksum "~/fishing-docker/laravel/package-lock.json" }}
-            - node-v2-
+      - run: composer install --working-dir=./laravel
+      - run: npm install
+      - run: npm run dev
       - run: yarn install 
-      - save_cache: 
-          key: node-v1-{{ checksum "./laravel/package-lock.json" }}
-          paths:
-            - ~/fishing-docker
       - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
