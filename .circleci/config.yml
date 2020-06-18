@@ -71,9 +71,18 @@ jobs:
       - run: sudo apt-get update
       - run: sudo composer self-update
       - run: composer install --working-dir=./laravel
-      - run: npm install
-      - run: npm run dev
-      - run: yarn install 
+      - run: 
+          name: npm install
+          working_directory: ~/fishing-docker/laravel
+          command: npm install
+      - run: 
+          name: npm run dev
+          working_directory: ~/fishing-docker/laravel
+          command: npm run dev
+      - run: 
+          name: yarn install
+          working_directory: ~/fishing-docker/laravel
+          command: yarn install 
       - aws-cli/install
       - setup_remote_docker
       - aws-cli/configure:
