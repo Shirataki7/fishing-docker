@@ -4,8 +4,9 @@ AWSID=$(aws sts get-caller-identity | jq -r  .Account)
 
 aws ecr get-login-password --region ap-northeast-1 --profile default | docker login --username AWS --password-stdin 872475949043.dkr.ecr.ap-northeast-1.amazonaws.com
 
-if [$? = 0]; then
-
+if [$? = 1]; then 
+echo 'login error'
+else
 #build、タグ付け、push
 cd ../
 docker build -t tsurins-app:latest -f ./infrastructure/docker/build/Dockerfile .
