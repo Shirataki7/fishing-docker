@@ -72,10 +72,10 @@ jobs:
       - run: sudo composer self-update
       - restore_cache: 
           keys:
-            - composer-v1-{{ checksum "./composer.lock" }}
+            - composer-v1-{{ checksum "composer.lock" }}
             - composer-v1-
           paths: 
-            - ./laravel
+            - ~/fishing-docker/laravel
       - run: cat ~/fishing-docker/laravel/aws.sh
       # - run: composer install -n --prefer-dist --working-dir=./laravel
       # - save_cache: 
