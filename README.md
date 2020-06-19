@@ -23,8 +23,10 @@
 - [Terraform](https://github.com/Shirataki7/fishing-docker/tree/terraform/production)
 - CircleCI
 
-## ER図
-- テーブル設計  
+## データベースのテーブル設計図
+ 
 ![db_ER](https://user-images.githubusercontent.com/61406078/84681384-00ed3e00-af6f-11ea-85e2-6626945c112e.jpg)
 
+## AWSの構成図
 
+![aws](https://user-images.githubusercontent.com/61406078/85150317-57b78800-b28d-11ea-81a5-42bad3d1bd19.jpg)
