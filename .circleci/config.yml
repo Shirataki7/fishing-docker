@@ -14,7 +14,7 @@ jobs:
       - run: apk --update add curl
       - run: apk add py-pip
       - run: pip install awscli
-      - run: aws configure set --profile default aws_access_key_id ${aws_access_key} 
+      - run: aws configure set --profile default aws_access_key_id ${aws_access_key_id} 
       - run: aws configure set --profile default aws_secret_access_key ${aws_secret_access_key}
       - run: terraform init
       - run: terraform plan
@@ -26,7 +26,7 @@ jobs:
       - run: apk --update add curl
       - run: apk add py-pip
       - run: pip install awscli
-      - run: aws configure set --profile default aws_access_key_id ${aws_access_key} 
+      - run: aws configure set --profile default aws_access_key_id ${aws_access_key_id} 
       - run: aws configure set --profile default aws_secret_access_key ${aws_secret_access_key}
       - run: terraform init
       - run: terraform apply -auto-approve
