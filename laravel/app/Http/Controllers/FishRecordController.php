@@ -51,7 +51,7 @@ class FishRecordController extends Controller
     public function index()
     {   //データベースの中身を取得
 
-        $data =  FishRecord::where('user_id', Auth::id());
+        $data =  FishRecord::where('user_id', Auth::id())->orderBy('created_at', 'desc');
 
         // 検索       
         if (Request::query()) {
