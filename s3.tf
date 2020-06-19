@@ -13,3 +13,14 @@ terraform {
     encrypt = true
   }
 }
+
+resource "aws_s3_bucket" "tsurins_S3" {
+  bucket = "tsurins-images"
+  acl    = "private"
+  region = "ap-northeast-1"
+
+  tags = {
+    Name = "tsurins bucket"
+  }
+}
+
