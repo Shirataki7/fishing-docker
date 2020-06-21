@@ -2,11 +2,11 @@
 <html lang="ja">
 <style>
   body { 
-    background-color: #fffacd;
+    background-color: #f7f7f7;
   }
   h1 {
     font-size: 16px;
-    color: #ff6666;
+    color: #313030;
   }
   #button {
     width: 200px;
@@ -31,7 +31,7 @@
   パスワードリセット
 </h1>
 <p>
-  以下のボタンを押下し、パスワードリセットの手続きを行ってください。
+  以下のボタンを押し、パスワードリセットの手続きを行ってください。
 </p>
 <p id="button">
   <a href="{{$reset_url}}">パスワードリセット</a>
