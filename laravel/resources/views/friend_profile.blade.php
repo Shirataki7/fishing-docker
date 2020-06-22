@@ -12,8 +12,8 @@
         <div class="friend_profile_box">
             <h4>{{$user->name}}</h4>
             @if(!$user->user_image==null)
-            <a href="https://s3-ap-northeast-1.amazonaws.com/aws.fish-records/{{$user->user_image}}" data-lightbox="group">
-                <img src="https://s3-ap-northeast-1.amazonaws.com/aws.fish-records/{{$user->user_image}}"></a><br />
+            <a href="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$user->user_image}}" data-lightbox="group">
+                <img src="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$user->user_image}}"></a><br />
             @endif           
             性別：{{$user->sex}}<br />
             登録日：{{$user->created_at}}<br />
@@ -57,7 +57,7 @@
                             </div>
                             <div class="rec_image">
                                 @if($rec['fish_image'] != null)
-                                <img src="https://s3-ap-northeast-1.amazonaws.com/aws.fish-records/{{$rec['fish_image']}}">
+                                <img src="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$rec['fish_image']}}">
                                 @else
                                 <img src="{{asset('/images/no_image.jpg')}}">
                                 @endif
