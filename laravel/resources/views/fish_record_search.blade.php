@@ -65,7 +65,7 @@
                                 rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
                         </div>
                         <div class="rec_edit">
-                            {{Form::open(['route'=>['edit',$rec['id']]])}}
+                            {{Form::open(['method'=>'get','route'=>['edit',$rec['id']]])}}
                             {{Form::submit('修正',['name'=>'edit[]'],$rec['id'])}}
                             {{Form::close()}}
                         </div>
