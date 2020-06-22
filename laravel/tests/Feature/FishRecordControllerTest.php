@@ -35,7 +35,7 @@ class FishRecordControllerTest extends TestCase
 
     public function test_edit()
     {
-        $response = $this->actingAs(User::find(3))->post('fish_records/edit/5');
+        $response = $this->actingAs(User::find(3))->get('fish_records/edit/5');
 
         $response->assertStatus(200)
             ->assertViewIs('fish_record_edit')
