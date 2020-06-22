@@ -11,6 +11,7 @@
         "php": "^7.3.16",
         "ext-intl": "*",
         "abraham/twitteroauth": "^1.1",
+        "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/socialite": "^4.4",

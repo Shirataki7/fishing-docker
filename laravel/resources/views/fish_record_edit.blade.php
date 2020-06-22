@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class='form-row '>
-                {{ Form::label('size','サイズ',['class'=>'col-form-label'])}}
+                {{ Form::label('size','サイズ(cm)',['class'=>'col-form-label'])}}
                 <div class="col">
                     {{ Form::text('size',old('size',$rec->size),['class'=>'form-control'])}}
                 </div>
