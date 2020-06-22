@@ -47,7 +47,7 @@
                     {{ Form::text('fish_name',null,['class'=>'form-control'])}}
                 </div>
 
-                {{ Form::label('size','サイズ',['class'=>'col-form-label'])}}
+                {{ Form::label('size','サイズ(cm)',['class'=>'col-form-label'])}}
                 <div class="col">
                     {{ Form::text('size',null,['class'=>'form-control'])}}
                 </div>

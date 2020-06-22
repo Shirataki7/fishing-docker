@@ -28,6 +28,7 @@ class FishRecordRequest extends FormRequest
             'harbor' => 'required',
             'fish_name' => 'required',
             'fish_image'=> 'file|image|mimes:jpeg,png',
+            'size'=>'nullable|regex:/\d*\.?\d+/',
         ];
     }
 
@@ -39,6 +40,7 @@ class FishRecordRequest extends FormRequest
             'fish_image.file'=>'画像を選択してください',
             'fish_image.image'=>'画像を選択してください',
             'fish_image.mimes:jpeg,png'=>'画像を選択してください',
+            'size.regex'=>'数字を入力してください'
         ];
     }
 }
