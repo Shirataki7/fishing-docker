@@ -33,7 +33,7 @@ Route::post('fish_records','FishRecordController@create');
 Route::get('fish_records','FishRecordController@index')->name('list');
 
 //釣り記録編集ページ
-Route::post('fish_records/edit/{id}','FishRecordController@edit')->name('edit');
+Route::get('fish_records/edit/{id}','FishRecordController@edit')->name('edit');
 
 //釣り記録編集投稿
 Route::post('fish_records/update/{id}','FishRecordController@update')->name('update');
