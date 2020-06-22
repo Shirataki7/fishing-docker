@@ -25,7 +25,7 @@
 
 ## データベースのテーブル設計図
  
-![db_ER](https://user-images.githubusercontent.com/61406078/84681384-00ed3e00-af6f-11ea-85e2-6626945c112e.jpg)
+![db_ER](https://user-images.githubusercontent.com/61406078/85307332-bded1680-b4ea-11ea-89ed-35cc677e0a7a.jpg)
 
 ## AWSの構成図
 
