@@ -12,9 +12,10 @@
         <div class="friend_profile_box">
             <h4>{{$user->name}}</h4>
             @if(!$user->user_image==null)
-            <a href="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$user->user_image}}" data-lightbox="group">
+            <a href="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$user->user_image}}"
+                data-lightbox="group">
                 <img src="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$user->user_image}}"></a><br />
-            @endif           
+            @endif
             性別：{{$user->sex}}<br />
             登録日：{{$user->created_at}}<br />
             自己紹介：{{$user->description}}<br />
@@ -57,7 +58,8 @@
                             </div>
                             <div class="rec_image">
                                 @if($rec['fish_image'] != null)
-                                <img src="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$rec['fish_image']}}">
+                                <img
+                                    src="https://s3-ap-northeast-1.amazonaws.com/tsurins-images/{{$rec['fish_image']}}">
                                 @else
                                 <img src="{{asset('/images/no_image.jpg')}}">
                                 @endif
@@ -70,13 +72,13 @@
                             <p>棚 / {{$rec['depth']}}m</p>
                         </div>
                         <div class="rec_btn">
+                            @if($rec->user_id == Auth::id())
                             <div class='twitter_shere'>
                                 <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
-                                &text={{$user->name}}さんの釣った{{$rec->fish_name}}がすごい！
+                                    &text=釣り記録を投稿しました！%0a{{$rec->harbor}}で{{$rec->fish_name}}を釣ったよ！
                                     &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
                                     rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
-                                </div>
-                            @if($rec->user_id == Auth::id())
+                            </div>
                             <div class="rec_edit">
                                 {{Form::open(['method'=>'get','route'=>['edit',$rec['id']]])}}
                                 {{Form::submit('修正',['name'=>'edit[]'],$rec['id'])}}
@@ -86,6 +88,13 @@
                                 {{Form::open(['route'=>['delete',$rec['id']]])}}
                                 {{Form::submit('削除',['name'=>'delete[]','class'=>'delete'],$rec['id'])}}
                                 {{Form::close()}}
+                            </div>
+                            @elseif($rec->user_id != Auth::id() || Auth::id() == null)
+                            <div class='twitter_shere'>
+                                <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
+                                &text={{$rec->user->name}}さんの釣った{{$rec->fish_name}}がすごい！
+                                    &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
+                                    rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
                             </div>
                             @endif
                         </div>
@@ -104,15 +113,15 @@
             {{Form::open(['route'=>['friend_delete',$user->id]])}}
             {{ method_field('delete') }}
             {{Form::submit('フレンド解除')}}
-            {{Form::close()}}           
-            @elseif(!$is_friend && $user->id!=Auth::id())
+            {{Form::close()}}
+            @elseif(!$is_friend && $user->id!=Auth::id() && !Auth::id() == null)
             {{-- フレンド追加ボタン --}}
             {{Form::open(['route'=>'add_friend'])}}
             {{Form::hidden('friend_id',$user->id)}}
             {{Form::submit('フレンドになる',['name'=>'friend_btn'])}}
             {{Form::close()}}
             @endif
-            <br/>
+            <br />
             {{-- 戻るボタン --}}
             {{Form::open(['route'=>'friend_list','method'=>'get'])}}
             {{Form::submit('戻る',['class'=>'return btn'])}}

@@ -8,7 +8,7 @@
     <div class="top">
         <img src="{{asset('/images/logo.png')}}">
         <p id='top_line1'>あなたの釣りを見える化します。</p>
-        <p id ='top_line2'>サイズや写真を記録して今日釣った魚をみんなに自慢しましょう！</p>
+        <p id='top_line2'>サイズや写真を記録して今日釣った魚をみんなに自慢しましょう！</p>
     </div>
     <div class="timeline">
         <h3><i class="fas fa-cat"></i> TIME LINE</h3>
@@ -64,13 +64,13 @@
                         <p>棚 / {{$rec['depth']}}m</p>
                     </div>
                     <div class="rec_btn">
+                        @if($rec->user_id == Auth::id())
                         <div class='twitter_shere'>
                             <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
-                                &text={{$rec->user->name}}さんの釣った{{$rec->fish_name}}がすごい！
+                                &text=釣り記録を投稿しました！%0a{{$rec->harbor}}で{{$rec->fish_name}}を釣ったよ！
                                 &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
                                 rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
                         </div>
-                        @if($rec->user_id == Auth::id())
                         <div class="rec_edit">
                             {{Form::open(['method'=>'get','route'=>['edit',$rec['id']]])}}
                             {{Form::submit('修正',['name'=>'edit[]'],$rec['id'])}}
@@ -81,6 +81,13 @@
                             {{ method_field('delete') }}
                             {{Form::submit('削除',['name'=>'delete[]','class'=>'delete'],$rec['id'])}}
                             {{Form::close()}}
+                        </div>
+                        @elseif($rec->user_id != Auth::id() || Auth::id() == null)
+                        <div class='twitter_shere'>
+                            <a href='http://twitter.com/share?url=http://www.tsurins.com/fish_records/{{$rec->id}}
+                            &text={{$rec->user->name}}さんの釣った{{$rec->fish_name}}がすごい！
+                                &hashtags=TSURINS,fishing,釣り,釣り人&via=tsurins_info' target='_blank'
+                                rel='noopener noreferrer'><i class="fab fa-twitter"></i></a>
                         </div>
                         @endif
                     </div>
