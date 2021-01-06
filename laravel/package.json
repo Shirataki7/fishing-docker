@@ -12,7 +12,7 @@
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
         "@fortawesome/fontawesome-free": "^5.13.0",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
         "font-awesome-scss": "^1.0.0",
